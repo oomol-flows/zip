@@ -1,0 +1,21 @@
+nodes:
+  - task: self::file-to-zip
+    title: "file-to-zip #1"
+    node_id: file2zip#1
+    inputs_from:
+      - handle: file_path
+        value: /oomol-driver/oomol-storage/yyy
+      - handle: save_path
+        value: /oomol-driver/oomol-storage
+    icon: ":fa6-solid:file-zipper:"
+  - task: self::unzip
+    title: "unzip #1"
+    node_id: unzip#1
+    inputs_from:
+      - handle: save_path
+        value:
+      - handle: file_path
+        value: /oomol-driver/oomol-storage/yyy.zip
+        from_node:
+          - node_id: file2zip#1
+            output_handle: zip_address

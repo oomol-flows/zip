@@ -1,0 +1,27 @@
+inputs_def:
+  - handle: file_path
+    description: Input
+    json_schema:
+      type: string
+      ui:widget: file
+  - handle: save_path
+    json_schema:
+      type: string
+      ui:widget: dir
+    value:
+    nullable: true
+outputs_def:
+  - handle: zip_address
+    description: Output
+    json_schema:
+      type: string
+      ui:widget: file
+ui:
+  default_width: 450
+executor:
+  name: nodejs
+  options:
+    spawn: false
+    entry: main.ts
+title: file-to-zip
+icon: ":fa6-solid:file-zipper:"

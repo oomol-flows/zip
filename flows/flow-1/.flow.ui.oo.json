@@ -1,0 +1,22 @@
+{
+  "nodes": {
+    "file2zip#1": {
+      "contentWidth": 515.3869381070847,
+      "rfNode": {
+        "position": {
+          "x": 255,
+          "y": 150
+        }
+      }
+    },
+    "unzip#1": {
+      "contentWidth": 586.0315407110986,
+      "rfNode": {
+        "position": {
+          "x": 925.3103720269669,
+          "y": 435
+        }
+      }
+    }
+  }
+}
