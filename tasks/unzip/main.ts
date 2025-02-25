@@ -25,11 +25,11 @@ export default async function (
 };
 
 function unzipFile(zipFilePath: string, outputDir: string) {
-  // 加载 ZIP 文件
+  // Load the ZIP file
   const zip = new AdmZip(zipFilePath);
 
-  // 解压到指定目录
+  // Extract to the specified directory
   zip.extractAllTo(outputDir, /* overwrite */ true);
 
-  console.log(`ZIP 文件已成功解压到: ${outputDir}`);
+  console.log(`ZIP file successfully extracted to: ${outputDir}`);
 }

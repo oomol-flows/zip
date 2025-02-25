@@ -8,7 +8,7 @@ inputs_def:
     json_schema:
       type: string
       ui:widget: file
-    value: ""
+    value:
     nullable: true
 outputs_def:
   - handle: unzip_address

@@ -1,4 +1,4 @@
-version: 0.0.2
+version: 0.0.3
 scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
@@ -11,5 +11,5 @@ dependencies:
   {}
 description: This project can package the files or folders in the selected path
   into a zip package
-releaseNotes: add code repo
+releaseNotes: update readme
 repository: https://github.com/oomol-flows/zip

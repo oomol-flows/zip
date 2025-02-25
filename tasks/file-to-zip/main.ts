@@ -28,22 +28,21 @@ export default async function (
 
 function zipFileOrFolder(sourcePath:string, outputPath: string) {
   const zip = new AdmZip();
-  zip.getEntries(); // 获取 ZIP 文件中的所有条目
-  // 检查源路径是文件还是文件夹
+  zip.getEntries(); // Get all entries in the ZIP file
+  // Check if the source path is a file or a directory
   const stats = fs.statSync(sourcePath);
 
   if (stats.isFile()) {
-      // 如果是文件，直接添加到 ZIP
-      const fileName = path.basename(sourcePath);
+      // If it's a file, add it directly to the ZIP
       zip.addLocalFile(sourcePath);
   } else if (stats.isDirectory()) {
-      // 如果是文件夹，递归添加文件夹中的所有文件
+      // If it's a folder, recursively add all files in the folder
       zip.addLocalFolder(sourcePath);
   } else {
-      throw new Error('源路径既不是文件也不是文件夹');
+      throw new Error('Source path is neither a file nor a directory');
   }
 
-  // 将 ZIP 文件写入磁盘
+  // Write the ZIP file to disk
   zip.writeZip(outputPath);
-  console.log(`ZIP 文件已成功创建: ${outputPath}`);
+  console.log(`ZIP file successfully created: ${outputPath}`);
 }

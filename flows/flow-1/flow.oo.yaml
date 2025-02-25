@@ -4,9 +4,9 @@ nodes:
     node_id: file2zip#1
     inputs_from:
       - handle: file_path
-        value: /oomol-driver/oomol-storage/yyy
+        value: /oomol-driver/oomol-storage/book
       - handle: save_path
-        value: /oomol-driver/oomol-storage
+        value:
     icon: ":fa6-solid:file-zipper:"
   - task: self::unzip
     title: "unzip #1"
