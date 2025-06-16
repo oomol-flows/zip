@@ -1,7 +1,12 @@
-version: 0.0.4
+version: 0.0.5
 scripts:
   bootstrap: |
     npm install
     poetry install --no-root
 icon: ./icon.png
 name: zip
+displayName: ZIP
+repository: https://github.com/oomol-flows/zip
+description: You can package files and folders as zip and decompress, supporting
+  encryption and decryption
+releaseNotes: update new zip

@@ -3,7 +3,6 @@ nodes:
     title: "ZIP Dir #2"
     inputs_from:
       - handle: dir_to_zip
-        value: /oomol-driver/oomol-storage/book
       - handle: zip_file_name
         value: null
       - handle: password
@@ -13,9 +12,17 @@ nodes:
     title: "ZIP File #2"
     inputs_from:
       - handle: file_to_zip
-        value: /oomol-driver/oomol-storage/country_data.xlsx
       - handle: zip_file_name
         value: null
       - handle: password
         value: null
     task: self::zip_file
+  - node_id: extract_zip#1
+    title: "Extract ZIP #1"
+    inputs_from:
+      - handle: zip_file
+      - handle: zip_dir
+        value: null
+      - handle: password
+        value: null
+    task: self::extract_zip
