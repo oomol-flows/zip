@@ -1,0 +1,7 @@
+version: 0.0.4
+scripts:
+  bootstrap: |
+    npm install
+    poetry install --no-root
+icon: ./icon.png
+name: zip

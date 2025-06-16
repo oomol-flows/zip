@@ -1,0 +1,32 @@
+ui:
+  default_width: 450
+inputs_def:
+  - handle: dir_to_zip
+    description: Input
+    json_schema:
+      type: string
+      ui:widget: dir
+  - handle: zip_file_name
+    json_schema:
+      type: string
+      ui:widget: save
+    value:
+    nullable: true
+  - handle: password
+    json_schema:
+      type: string
+    value:
+    nullable: true
+outputs_def:
+  - handle: output
+    description: Output
+    json_schema:
+      type: string
+      ui:widget: file
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+title: ZIP Dir
+icon: ":carbon:zip:"
