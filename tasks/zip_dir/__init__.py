@@ -4,8 +4,11 @@ import os
 #region generated meta
 import typing
 class Inputs(typing.TypedDict):
+    # path to the directory to be zipped
     dir_to_zip: str
+    # output ZIP file name
     zip_file_name: str | None
+    # password for the ZIP file
     password: str | None
 class Outputs(typing.TypedDict):
     output: str
@@ -13,9 +16,9 @@ class Outputs(typing.TypedDict):
 
 def main(params: Inputs, context: Context) -> Outputs:
 
-    # 要压缩的文件路径
+    # Path to the file to be compressed
     dir_to_zip = params.get("dir_to_zip")
-    # 输出的ZIP文件路径
+    # Output ZIP file path
     zip_file_name = params.get("zip_file_name")
 
     if zip_file_name is None:
@@ -31,10 +34,14 @@ def main(params: Inputs, context: Context) -> Outputs:
     else:
         zip_file_path = zip_file_name
 
-    # 密码
+    # Check if the output path is within the compressed folder
+    if os.path.commonpath([dir_to_zip, zip_file_path]) == dir_to_zip:
+        raise ValueError("Output file cannot be inside the compressed folder")
+
+    # Password
     password = params.get("password")
 
-    # 创建一个新的ZIP文件
+    # Create a new ZIP file
     zip_directory_no_path(dir_to_zip, zip_file_path, password)
 
     return { "output": zip_file_path }
@@ -45,17 +52,17 @@ def zip_directory_no_path(source_dir, zip_path, password):
             zf.setpassword(password.encode())
             zf.setencryption(pyzipper.WZ_AES, nbits=128)
 
-        # 遍历目录（包括子目录）
+        # Iterate through the directory (including subdirectories)
         for root, dirs, files in os.walk(source_dir):
             for file in files:
                 file_path = os.path.join(root, file)
-                # 计算相对路径（用于剥离源目录结构）
+                # Calculate the relative path (to strip the source directory structure)
                 relative_path = os.path.relpath(root, source_dir)
 
                 if relative_path == '.':
-                    # 根目录文件直接使用文件名
+                    # Root directory files use the file name directly
                     zf.write(file_path, arcname=file)
                 else:
-                    # 子目录文件拼接相对路径+文件名（但剥离了源目录结构）
+                    # Subdirectory files concatenate the relative path + file name (but strip the source directory structure)
                     arcname = os.path.join(relative_path, file)
                     zf.write(file_path, arcname=arcname)
