@@ -4,11 +4,8 @@ import os
 #region generated meta
 import typing
 class Inputs(typing.TypedDict):
-    # path to the directory to be zipped
     dir_to_zip: str
-    # output ZIP file name
     zip_file_name: str | None
-    # password for the ZIP file
     password: str | None
 class Outputs(typing.TypedDict):
     output: str
