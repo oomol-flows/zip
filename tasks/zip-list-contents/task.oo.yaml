@@ -1,0 +1,86 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to ZIP file to list contents"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: show_directories
+    description: "Include directories in the list"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+  - handle: detailed_info
+    description: "Include detailed file information"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+  - handle: sort_by
+    description: "Sort files by property"
+    json_schema:
+      type: string
+      enum: ["name", "size", "date", "type"]
+    value: "name"
+    nullable: false
+
+outputs_def:
+  - handle: file_list
+    description: "List of files in ZIP archive"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: detailed_contents
+    description: "Detailed information about ZIP contents"
+    json_schema:
+      contentMediaType: oomol/var
+
+  - handle: total_files
+    description: "Total number of files in ZIP"
+    json_schema:
+      type: number
+
+  - handle: total_directories
+    description: "Total number of directories in ZIP"
+    json_schema:
+      type: number
+
+  - handle: uncompressed_size
+    description: "Total uncompressed size in bytes"
+    json_schema:
+      type: number
+
+  - handle: compressed_size
+    description: "Total compressed size in bytes"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "List ZIP Contents"
+icon: ":carbon:list:"
+description: "List and analyze contents of a ZIP archive with detailed information"

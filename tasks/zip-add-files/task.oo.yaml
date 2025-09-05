@@ -1,0 +1,78 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to existing ZIP file"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: files_to_add
+    description: "Files or folders to add to ZIP"
+    json_schema:
+      type: array
+      items:
+        type: string
+        ui:
+          widget: file
+    nullable: false
+
+  - handle: archive_path_prefix
+    description: "Optional prefix for files in archive"
+    json_schema:
+      type: string
+    value: ""
+    nullable: true
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: overwrite_existing
+    description: "Overwrite files if they already exist in ZIP"
+    json_schema:
+      type: boolean
+    value: false
+    nullable: false
+
+outputs_def:
+  - handle: zip_path
+    description: "Path to modified ZIP file"
+    json_schema:
+      type: string
+
+  - handle: added_files_count
+    description: "Number of files successfully added"
+    json_schema:
+      type: number
+
+  - handle: new_size
+    description: "New size of ZIP file in bytes"
+    json_schema:
+      type: number
+
+  - handle: files_added
+    description: "List of files that were added"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Add Files to ZIP Archive"
+icon: ":carbon:add-alt:"
+description: "Add new files or folders to an existing ZIP archive"

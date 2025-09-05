@@ -1,0 +1,60 @@
+inputs_def:
+  - handle: source_path
+    description: "File or folder path to compress"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: output_path
+    description: "Output ZIP file path"
+    json_schema:
+      type: string
+      ui:
+        widget: save
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: include_subdirectories
+    description: "Include subdirectories when compressing folder"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+outputs_def:
+  - handle: zip_path
+    description: "Path to created ZIP file"
+    json_schema:
+      type: string
+
+  - handle: compressed_size
+    description: "Size of compressed ZIP file in bytes"
+    json_schema:
+      type: number
+
+  - handle: original_size
+    description: "Total size of original files in bytes"
+    json_schema:
+      type: number
+
+  - handle: compression_ratio
+    description: "Compression ratio as percentage"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Create ZIP Archive"
+icon: ":carbon:archive:"
+description: "Compress files or folders into a ZIP archive with basic compression"

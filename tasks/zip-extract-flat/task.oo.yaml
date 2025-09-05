@@ -1,0 +1,90 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to ZIP file to extract"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: output_directory
+    description: "Directory to extract files to"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: handle_name_conflicts
+    description: "How to handle filename conflicts"
+    json_schema:
+      type: string
+      enum: ["skip", "rename", "overwrite"]
+    value: "rename"
+    nullable: false
+
+  - handle: file_filter
+    description: "File extension filter (e.g., '.txt,.jpg')"
+    json_schema:
+      type: string
+    value: ""
+    nullable: true
+
+  - handle: max_files
+    description: "Maximum number of files to extract (0=unlimited)"
+    json_schema:
+      type: integer
+      minimum: 0
+    value: 0
+    nullable: false
+
+outputs_def:
+  - handle: extracted_path
+    description: "Path where files were extracted"
+    json_schema:
+      type: string
+
+  - handle: extracted_files_count
+    description: "Number of files extracted"
+    json_schema:
+      type: number
+
+  - handle: extracted_files
+    description: "List of extracted file paths"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: skipped_files_count
+    description: "Number of files skipped"
+    json_schema:
+      type: number
+
+  - handle: total_size
+    description: "Total size of extracted files in bytes"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Flat ZIP Extraction"
+icon: ":carbon:horizontal-view:"
+description: "Extract ZIP contents to a flat directory structure, ignoring subdirectories"

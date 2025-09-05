@@ -1,0 +1,88 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to encrypted ZIP file to extract"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: password
+    description: "Password for encrypted ZIP"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: false
+
+  - handle: output_directory
+    description: "Directory to extract files to"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: create_subfolder
+    description: "Create subfolder with ZIP name"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+  - handle: overwrite_existing
+    description: "Overwrite existing files"
+    json_schema:
+      type: boolean
+    value: false
+    nullable: false
+
+  - handle: verify_password_first
+    description: "Verify password before extraction"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+outputs_def:
+  - handle: extracted_path
+    description: "Path where files were extracted"
+    json_schema:
+      type: string
+
+  - handle: extracted_files_count
+    description: "Number of files extracted"
+    json_schema:
+      type: number
+
+  - handle: extracted_files
+    description: "List of extracted file paths"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: total_size
+    description: "Total size of extracted files in bytes"
+    json_schema:
+      type: number
+
+  - handle: password_verified
+    description: "Whether password was successfully verified"
+    json_schema:
+      type: boolean
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Extract Encrypted ZIP Archive"
+icon: ":carbon:cd-archive:"
+description: "Extract contents from a password-protected encrypted ZIP archive"

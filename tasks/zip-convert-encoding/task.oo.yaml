@@ -1,0 +1,108 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to ZIP file with encoding issues"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: output_path
+    description: "Output ZIP file path with corrected encoding"
+    json_schema:
+      type: string
+      ui:
+        widget: save
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: source_encoding
+    description: "Source encoding of filenames in ZIP"
+    json_schema:
+      type: string
+      enum: ["gbk", "gb2312", "big5", "shift_jis", "euc-kr", "cp437", "auto"]
+    value: "auto"
+    nullable: false
+
+  - handle: target_encoding
+    description: "Target encoding for output ZIP"
+    json_schema:
+      type: string
+      enum: ["utf-8", "gbk", "gb2312", "big5", "shift_jis", "euc-kr"]
+    value: "utf-8"
+    nullable: false
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: output_password
+    description: "Password for output ZIP file (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: fix_garbled_names
+    description: "Attempt to fix garbled Chinese filenames"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+  - handle: preserve_timestamps
+    description: "Preserve original file timestamps"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+outputs_def:
+  - handle: converted_zip_path
+    description: "Path to converted ZIP file"
+    json_schema:
+      type: string
+
+  - handle: conversion_summary
+    description: "Summary of encoding conversion"
+    json_schema:
+      contentMediaType: oomol/var
+
+  - handle: files_converted
+    description: "Number of files successfully converted"
+    json_schema:
+      type: number
+
+  - handle: encoding_issues_found
+    description: "Number of files with encoding issues found"
+    json_schema:
+      type: number
+
+  - handle: detected_encoding
+    description: "Auto-detected source encoding"
+    json_schema:
+      type: string
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Convert ZIP Encoding"
+icon: ":carbon:character-whole-number:"
+description: "Fix filename encoding issues in ZIP archives, especially for Chinese/Asian filenames"

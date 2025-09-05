@@ -1,0 +1,91 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to ZIP file to extract"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: files_to_extract
+    description: "List of specific files to extract (relative paths)"
+    json_schema:
+      type: array
+      items:
+        type: string
+    nullable: false
+
+  - handle: output_directory
+    description: "Directory to extract files to"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: preserve_structure
+    description: "Preserve directory structure"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+  - handle: overwrite_existing
+    description: "Overwrite existing files"
+    json_schema:
+      type: boolean
+    value: false
+    nullable: false
+
+outputs_def:
+  - handle: extracted_path
+    description: "Path where files were extracted"
+    json_schema:
+      type: string
+
+  - handle: extracted_files_count
+    description: "Number of files successfully extracted"
+    json_schema:
+      type: number
+
+  - handle: extracted_files
+    description: "List of extracted file paths"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: skipped_files
+    description: "List of files that were skipped"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: total_size
+    description: "Total size of extracted files in bytes"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Selective ZIP Extraction"
+icon: ":carbon:select-02:"
+description: "Extract only specific files from a ZIP archive"

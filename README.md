@@ -1,147 +1,229 @@
-# Zip
+# ZIP Operations for OOMOL Platform
 
-A modern file compression and archiving tool built with TypeScript and Python, designed for efficient file compression with cross-platform support.
+A comprehensive collection of ZIP archive manipulation task blocks for the OOMOL workflow platform. This package provides 15 specialized task blocks covering all aspects of ZIP file operations, from basic compression and extraction to advanced features like encryption, encoding conversion, and archive management.
 
-## Features
+## 🎯 Overview
 
-- **Cross-Platform Compatibility**: Works seamlessly on Windows, macOS, and Linux
-- **Multiple Format Support**: Supports ZIP, TAR, GZIP, and other popular archive formats
-- **High Performance**: Optimized compression algorithms for fast processing
-- **Modern Interface**: Clean, intuitive command-line interface
-- **Batch Processing**: Compress multiple files and directories efficiently
-- **Metadata Preservation**: Maintains file permissions and metadata during compression
+This OOMOL package enables users to work with ZIP archives through a visual workflow interface. Each task block is designed to be intuitive, reliable, and feature-rich, supporting both basic file operations and advanced use cases like encrypted archives, batch processing, and cross-platform encoding compatibility.
 
-## Installation
+## ✨ Key Features
+
+- **🔐 Full Encryption Support** - AES 128/192/256-bit encryption for secure archives
+- **🌏 Encoding Compatibility** - Auto-detection and conversion for Chinese/Asian filenames
+- **📊 Detailed Analytics** - Compression statistics, file counts, and processing summaries
+- **🔄 Batch Processing** - Handle multiple files and folders efficiently  
+- **🛠️ Advanced Operations** - Merge, split, validate, and selectively extract archives
+- **📋 Rich UI Integration** - File pickers, save dialogs, and progress indicators
+- **⚡ High Performance** - Optimized for large files and complex operations
+
+## 📦 Task Blocks Overview
+
+### Compression Tasks (5 blocks)
+
+#### `zip-create` - Basic Archive Creation
+Create ZIP archives from files or folders with standard compression.
+- **Input**: Source path, output path, compression options
+- **Output**: ZIP file path, compression statistics
+- **Use Case**: General-purpose file archiving
+
+#### `zip-create-encrypted` - Encrypted Archive Creation  
+Create password-protected ZIP archives with AES encryption.
+- **Input**: Source path, password, encryption strength (128/192/256)
+- **Output**: Encrypted ZIP file with compression metrics
+- **Use Case**: Secure file storage and transmission
+
+#### `zip-compress-level` - Custom Compression
+Create ZIP archives with configurable compression levels and methods.
+- **Input**: Compression level (0-9), method (DEFLATED/STORED/BZIP2/LZMA)
+- **Output**: ZIP file with detailed compression timing
+- **Use Case**: Optimizing file size vs. processing time
+
+#### `zip-add-files` - Append to Archive
+Add new files to existing ZIP archives without recreating.
+- **Input**: Existing ZIP path, files to add, conflict handling
+- **Output**: Modified ZIP with addition summary
+- **Use Case**: Incremental archive updates
+
+#### `zip-batch-compress` - Bulk Compression
+Compress multiple folders into separate ZIP files in one operation.
+- **Input**: List of folders, output directory, naming patterns
+- **Output**: Multiple ZIP files with batch processing summary
+- **Use Case**: Organizing large collections of folders
+
+### Extraction Tasks (4 blocks)
+
+#### `zip-extract` - Standard Extraction
+Extract ZIP archive contents to a specified directory.
+- **Input**: ZIP path, output directory, structure options
+- **Output**: Extracted files list and statistics
+- **Use Case**: General file restoration and access
+
+#### `zip-extract-encrypted` - Decrypt and Extract
+Extract password-protected ZIP archives with validation.
+- **Input**: ZIP path, password, verification options
+- **Output**: Extracted files with password verification status
+- **Use Case**: Accessing secure archives
+
+#### `zip-extract-selective` - Partial Extraction
+Extract only specific files from ZIP archives.
+- **Input**: ZIP path, file selection list, structure preservation
+- **Output**: Selected extracted files with skip report
+- **Use Case**: Retrieving specific files without full extraction
+
+#### `zip-extract-flat` - Flattened Extraction
+Extract files to a flat directory structure, ignoring subdirectories.
+- **Input**: ZIP path, file filters, conflict resolution
+- **Output**: Flattened file structure with conflict handling
+- **Use Case**: Consolidating files from complex directory structures
+
+### Information Tasks (3 blocks)
+
+#### `zip-list-contents` - Archive Inspection
+List and analyze ZIP archive contents with detailed metadata.
+- **Input**: ZIP path, sorting options, detail level
+- **Output**: File listings, statistics, and structured data
+- **Use Case**: Archive exploration and content verification
+
+#### `zip-get-info` - Archive Metadata
+Extract comprehensive information about ZIP files and their properties.
+- **Input**: ZIP path, checksum calculation options
+- **Output**: Detailed metadata, compression stats, file analysis
+- **Use Case**: Archive analysis and quality assessment
+
+#### `zip-validate` - Integrity Verification
+Validate ZIP file integrity, test extraction, and verify checksums.
+- **Input**: ZIP path, validation depth, testing options
+- **Output**: Validation results, corruption reports, integrity status
+- **Use Case**: Quality assurance and archive health checking
+
+### Advanced Operations (3 blocks)
+
+#### `zip-merge` - Archive Consolidation
+Merge multiple ZIP archives into a single consolidated file.
+- **Input**: List of ZIP files, conflict resolution, password handling
+- **Output**: Merged archive with operation summary
+- **Use Case**: Combining related archives or consolidating backups
+
+#### `zip-split-by-size` - Archive Splitting
+Split large ZIP files into smaller chunks based on size limits.
+- **Input**: ZIP path, maximum size per chunk, naming patterns
+- **Output**: Multiple split files with size distribution
+- **Use Case**: Preparing archives for size-limited transfers or storage
+
+#### `zip-convert-encoding` - Filename Encoding Repair
+Fix filename encoding issues, especially for Chinese and Asian characters.
+- **Input**: ZIP path, source/target encodings, auto-detection options  
+- **Output**: Re-encoded archive with conversion statistics
+- **Use Case**: Cross-platform compatibility and internationalization
+
+## 🚀 Installation & Setup
 
 ### Prerequisites
+- OOMOL Platform
+- Python 3.10+ 
+- Poetry (for dependency management)
 
-- Node.js (v16 or higher)
-- Python (v3.8 or higher)
-- npm or yarn package manager
-
-### Install Dependencies
-
+### Installation
 ```bash
-# Install Node.js dependencies
-npm install
+# Clone or download this package to your OOMOL workspace
+git clone <repository-url> zip-operations
 
-# Install Python dependencies
-pip install -r requirements.txt
+# Install dependencies
+cd zip-operations
+poetry install --no-root
 ```
 
-## Usage
+### Dependencies
+- `pyzipper` (0.3.6+) - ZIP operations with encryption support
+- `pandas` (2.0.0+) - Data processing and analytics
+- `chardet` (5.0.0+) - Character encoding detection
+- `oocana` - OOMOL platform integration
 
-### Command Line Interface
+## 📋 Usage Examples
 
-```bash
-# Compress files to ZIP
-npm run compress --input ./files --output archive.zip
+### Basic Workflow: Compress → Validate → Extract
+1. Use `zip-create` to compress project files
+2. Use `zip-validate` to verify archive integrity  
+3. Use `zip-extract` to restore files when needed
 
-# Extract ZIP files
-npm run extract --input archive.zip --output ./extracted
+### Security Workflow: Encrypt → Verify → Decrypt
+1. Use `zip-create-encrypted` with strong password
+2. Use `zip-get-info` to verify encryption status
+3. Use `zip-extract-encrypted` with password for access
 
-# Batch compress multiple directories
-npm run batch-compress --config ./config.json
-```
+### Batch Processing Workflow: Batch → Merge → Split
+1. Use `zip-batch-compress` for multiple folders
+2. Use `zip-merge` to consolidate related archives
+3. Use `zip-split-by-size` for distribution-ready chunks
 
-### Python API
+### Cross-Platform Workflow: Convert → Validate → Extract
+1. Use `zip-convert-encoding` to fix filename issues
+2. Use `zip-validate` to ensure compatibility
+3. Use `zip-extract` for clean file restoration
 
-```python
-from newzip import Compressor
+## 🛠️ Technical Details
 
-# Create a new compressor instance
-compressor = Compressor()
+### Supported ZIP Features
+- Standard ZIP compression (DEFLATED, STORED, BZIP2, LZMA)
+- AES encryption (128/192/256-bit)
+- Unicode filename support
+- Large file support (>4GB with ZIP64)
+- Directory structures and metadata preservation
 
-# Compress a directory
-compressor.compress_directory('./source', './archive.zip')
+### Encoding Support
+- UTF-8 (primary)
+- GBK/GB2312 (Chinese Simplified)  
+- Big5 (Chinese Traditional)
+- Shift_JIS (Japanese)
+- EUC-KR (Korean)
+- CP437 (DOS/Windows legacy)
+- Auto-detection for mixed encodings
 
-# Extract an archive
-compressor.extract_archive('./archive.zip', './destination')
-```
+### Performance Characteristics
+- Optimized for both speed and compression ratio
+- Memory-efficient processing for large files
+- Parallel processing support where applicable
+- Progressive feedback for long operations
 
-## Project Structure
+## 🔧 Configuration Options
 
-```
-newzip/
-├── src/
-│   ├── typescript/          # TypeScript source code
-│   └── python/             # Python modules
-├── flows/                  # Workflow definitions
-├── tasks/                  # Build and automation tasks
-├── tests/                  # Unit and integration tests
-├── package.json            # Node.js dependencies
-├── pyproject.toml          # Python project configuration
-└── README.md
-```
+Each task block provides extensive configuration through its UI:
 
-## Development
+- **File Selection**: Directory pickers, file filters, save dialogs
+- **Security Options**: Password fields, encryption strength selection
+- **Processing Options**: Compression levels, batch settings, naming patterns
+- **Output Control**: Detailed logging, progress tracking, error handling
 
-### Setting Up Development Environment
+## 📊 Output Data
 
-1. Clone the repository
-2. Install dependencies (see Installation section)
-3. Run tests to ensure everything works
+All task blocks provide structured output data including:
 
-### Running Tests
+- **Operation Results**: Success/failure status, processed file counts
+- **Performance Metrics**: Compression ratios, processing times, file sizes
+- **Detailed Reports**: Pandas DataFrames with comprehensive operation data
+- **Error Information**: Detailed error messages and troubleshooting guidance
 
-```bash
-# Run TypeScript tests
-npm test
+## 🤝 Contributing
 
-# Run Python tests
-pytest
+This package follows OOMOL development standards:
 
-# Run all tests
-npm run test:all
-```
+1. Each task block includes both `task.oo.yaml` configuration and `__init__.py` implementation
+2. All inputs/outputs are properly typed with JSON schema definitions
+3. Error handling includes user-friendly messages and recovery suggestions
+4. UI components use appropriate widgets for file selection and data input
+5. Documentation includes comprehensive parameter descriptions
 
-### Building
+## 📄 License
 
-```bash
-# Build TypeScript
-npm run build
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-# Build Python package
-python setup.py build
-```
+## 🆘 Support
 
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Commit your changes (`git commit -m 'Add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
-
-## Support
-
-- **Documentation**: [docs.newzip.dev](https://docs.newzip.dev)
-- **Issues**: [GitHub Issues](https://github.com/your-org/newzip/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-org/newzip/discussions)
-
-## Roadmap
-
-- [ ] Support for additional archive formats (7z, RAR)
-- [ ] GUI application using Electron
-- [ ] Cloud storage integration
-- [ ] Compression optimization profiles
-- [ ] Batch processing with progress tracking
+- **Documentation**: Task block descriptions and parameter details
+- **Examples**: Sample workflows and common use cases  
+- **Issues**: Report bugs or request features through the OOMOL platform
+- **Community**: Share workflows and best practices with other users
 
 ---
 
-**Made with ❤️ by the NewZip team**
+**Built for the OOMOL Platform** - Empowering visual workflow automation with powerful ZIP archive operations.

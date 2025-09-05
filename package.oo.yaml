@@ -1,4 +1,4 @@
-version: 0.0.11
+version: 0.0.13
 scripts:
   bootstrap: |
     npm install
@@ -9,4 +9,4 @@ displayName: ZIP
 repository: https://github.com/oomol-flows/zip
 description: You can package files and folders as zip and decompress, supporting
   encryption and decryption
-releaseNotes: fix bug
+releaseNotes: add block

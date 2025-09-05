@@ -1,0 +1,100 @@
+inputs_def:
+  - handle: zip_path
+    description: "Path to ZIP file to split"
+    json_schema:
+      type: string
+      ui:
+        widget: file
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: max_size_mb
+    description: "Maximum size per split file in MB"
+    json_schema:
+      type: number
+      minimum: 1
+      maximum: 4096
+    value: 100
+    nullable: false
+
+  - handle: output_directory
+    description: "Directory to save split ZIP files"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: password
+    description: "Password if ZIP is encrypted (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: output_password
+    description: "Password for split ZIP files (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: naming_pattern
+    description: "Naming pattern for split files"
+    json_schema:
+      type: string
+      enum: ["sequential", "size_based", "alphabetical"]
+    value: "sequential"
+    nullable: false
+
+  - handle: compression_level
+    description: "Compression level for split files (0-9)"
+    json_schema:
+      type: integer
+      minimum: 0
+      maximum: 9
+    value: 6
+    nullable: false
+
+outputs_def:
+  - handle: split_files
+    description: "List of created split ZIP files"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: split_count
+    description: "Number of split files created"
+    json_schema:
+      type: number
+
+  - handle: split_summary
+    description: "Summary of split operation"
+    json_schema:
+      contentMediaType: oomol/var
+
+  - handle: total_split_size
+    description: "Total size of all split files in bytes"
+    json_schema:
+      type: number
+
+  - handle: original_size
+    description: "Size of original ZIP file in bytes"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Split ZIP by Size"
+icon: ":carbon:split:"
+description: "Split a large ZIP archive into smaller files based on maximum size limit"

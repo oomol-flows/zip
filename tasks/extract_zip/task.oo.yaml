@@ -2,23 +2,26 @@ ui:
   default_width: 450
 inputs_def:
   - handle: zip_file
+    description: "Path to the ZIP file to extract"
     json_schema:
       type: string
-      ui:widget: save
+      ui:widget: file
   - handle: zip_dir
+    description: "Directory where files will be extracted (optional)"
     json_schema:
       type: string
       ui:widget: dir
     nullable: true
     value:
   - handle: password
+    description: "Password for encrypted ZIP file (optional)"
     json_schema:
       type: string
     value:
     nullable: true
 outputs_def:
   - handle: output
-    description: Output
+    description: "Path to the extracted files directory"
     json_schema:
       type: string
       ui:widget: file
@@ -28,4 +31,5 @@ executor:
     entry: __init__.py
     spawn: false
 title: Extract ZIP
-icon: ":carbon:zip:"
+icon: ":carbon:bottom-panel-open:"
+description: "Extract files from a ZIP archive with optional password support"

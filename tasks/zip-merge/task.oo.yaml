@@ -1,0 +1,99 @@
+inputs_def:
+  - handle: zip_files
+    description: "List of ZIP files to merge"
+    json_schema:
+      type: array
+      items:
+        type: string
+        ui:
+          widget: file
+          ui:options:
+            filters:
+              - name: ZIP Archive
+                extensions:
+                  - zip
+            excludeAll: true
+    nullable: false
+
+  - handle: output_path
+    description: "Output merged ZIP file path"
+    json_schema:
+      type: string
+      ui:
+        widget: save
+        ui:options:
+          filters:
+            - name: ZIP Archive
+              extensions:
+                - zip
+          excludeAll: true
+    nullable: false
+
+  - handle: passwords
+    description: "Passwords for encrypted ZIP files (in order, optional)"
+    json_schema:
+      type: array
+      items:
+        type: string
+        contentMediaType: oomol/secret
+    nullable: true
+
+  - handle: output_password
+    description: "Password for merged ZIP file (optional)"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: handle_duplicates
+    description: "How to handle duplicate filenames"
+    json_schema:
+      type: string
+      enum: ["skip", "rename", "overwrite"]
+    value: "rename"
+    nullable: false
+
+  - handle: compression_level
+    description: "Compression level for merged ZIP (0-9)"
+    json_schema:
+      type: integer
+      minimum: 0
+      maximum: 9
+    value: 6
+    nullable: false
+
+outputs_def:
+  - handle: merged_zip_path
+    description: "Path to merged ZIP file"
+    json_schema:
+      type: string
+
+  - handle: total_files_merged
+    description: "Total number of files in merged ZIP"
+    json_schema:
+      type: number
+
+  - handle: merge_summary
+    description: "Summary of merge operation"
+    json_schema:
+      contentMediaType: oomol/var
+
+  - handle: duplicate_files_count
+    description: "Number of duplicate files encountered"
+    json_schema:
+      type: number
+
+  - handle: merged_size
+    description: "Size of merged ZIP file in bytes"
+    json_schema:
+      type: number
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Merge ZIP Archives"
+icon: ":carbon:join-inner:"
+description: "Merge multiple ZIP archives into a single ZIP file with duplicate handling"

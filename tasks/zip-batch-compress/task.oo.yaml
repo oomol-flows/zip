@@ -1,0 +1,86 @@
+inputs_def:
+  - handle: source_folders
+    description: "List of folders to compress individually"
+    json_schema:
+      type: array
+      items:
+        type: string
+        ui:
+          widget: dir
+    nullable: false
+
+  - handle: output_directory
+    description: "Directory to save ZIP files"
+    json_schema:
+      type: string
+      ui:
+        widget: dir
+    nullable: false
+
+  - handle: compression_level
+    description: "Compression level (0-9)"
+    json_schema:
+      type: integer
+      minimum: 0
+      maximum: 9
+    value: 6
+    nullable: false
+
+  - handle: add_timestamp
+    description: "Add timestamp to ZIP filename"
+    json_schema:
+      type: boolean
+    value: false
+    nullable: false
+
+  - handle: password
+    description: "Optional password for all ZIP files"
+    json_schema:
+      contentMediaType: oomol/secret
+      type: string
+    nullable: true
+
+  - handle: include_subdirectories
+    description: "Include subdirectories when compressing folders"
+    json_schema:
+      type: boolean
+    value: true
+    nullable: false
+
+outputs_def:
+  - handle: created_zips
+    description: "List of created ZIP file paths"
+    json_schema:
+      type: array
+      items:
+        type: string
+
+  - handle: total_original_size
+    description: "Total size of all original files in bytes"
+    json_schema:
+      type: number
+
+  - handle: total_compressed_size
+    description: "Total size of all ZIP files in bytes"
+    json_schema:
+      type: number
+
+  - handle: overall_compression_ratio
+    description: "Overall compression ratio as percentage"
+    json_schema:
+      type: number
+
+  - handle: processing_summary
+    description: "Summary of batch processing results"
+    json_schema:
+      contentMediaType: oomol/var
+
+executor:
+  name: python
+  options:
+    entry: __init__.py
+    spawn: false
+
+title: "Batch Compress Folders"
+icon: ":carbon:folder-details:"
+description: "Compress multiple folders into separate ZIP archives in a batch operation"
