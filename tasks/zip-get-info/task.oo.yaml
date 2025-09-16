@@ -16,7 +16,7 @@ inputs_def:
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
@@ -31,12 +31,12 @@ outputs_def:
   - handle: file_info
     description: "Basic ZIP file information"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: archive_stats
     description: "Archive statistics and metadata"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: is_encrypted
     description: "Whether the ZIP file is encrypted"

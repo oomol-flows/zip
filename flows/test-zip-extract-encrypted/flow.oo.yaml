@@ -1,0 +1,17 @@
+title: "Test ZIP Extract Encrypted"
+nodes:
+  - node_id: extract_encrypted_zip#1
+    task: self::zip-extract-encrypted
+    inputs_from:
+      - handle: zip_path
+        value: "/oomol-driver/oomol-storage/test-results/encrypted.zip"
+      - handle: password
+        value: "test123"
+      - handle: output_directory
+        value: "/oomol-driver/oomol-storage/test-results/encrypted-extracted"
+      - handle: create_subfolder
+        value: true
+      - handle: overwrite_existing
+        value: true
+      - handle: verify_password_first
+        value: true

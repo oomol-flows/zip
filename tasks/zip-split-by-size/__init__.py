@@ -11,7 +11,7 @@ class Inputs(typing.TypedDict):
 class Outputs(typing.TypedDict):
     split_files: list[str]
     split_count: float
-    split_summary: typing.Any
+    split_summary: dict
     total_split_size: float
     original_size: float
 #endregion

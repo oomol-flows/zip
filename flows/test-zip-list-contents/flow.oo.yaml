@@ -1,0 +1,15 @@
+title: "Test ZIP List Contents"
+nodes:
+  - node_id: list_contents#1
+    task: self::zip-list-contents
+    inputs_from:
+      - handle: zip_path
+        value: "/oomol-driver/oomol-storage/test-results/created.zip"
+      - handle: password
+        value: null
+      - handle: show_directories
+        value: true
+      - handle: detailed_info
+        value: true
+      - handle: sort_by
+        value: "name"

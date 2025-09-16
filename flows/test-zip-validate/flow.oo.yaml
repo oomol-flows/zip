@@ -1,0 +1,13 @@
+title: "Test ZIP Validate"
+nodes:
+  - node_id: validate_zip#1
+    task: self::zip-validate
+    inputs_from:
+      - handle: zip_path
+        value: "/oomol-driver/oomol-storage/test-results/created.zip"
+      - handle: password
+        value: null
+      - handle: detailed_check
+        value: true
+      - handle: verify_integrity
+        value: true

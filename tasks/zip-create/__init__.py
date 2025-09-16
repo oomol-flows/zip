@@ -4,6 +4,7 @@ class Inputs(typing.TypedDict):
     source_path: str
     output_path: str
     include_subdirectories: bool
+    password: str | None
 class Outputs(typing.TypedDict):
     zip_path: str
     compressed_size: float
@@ -29,6 +30,7 @@ def main(params: Inputs, context: Context) -> Outputs:
     source_path = params["source_path"]
     output_path = params["output_path"]
     include_subdirectories = params["include_subdirectories"]
+    password = params.get("password")
     
     if not os.path.exists(source_path):
         raise FileNotFoundError(f"Source path does not exist: {source_path}")
@@ -40,6 +42,10 @@ def main(params: Inputs, context: Context) -> Outputs:
     original_size = 0
     
     with pyzipper.AESZipFile(output_path, 'w', compression=pyzipper.ZIP_DEFLATED) as zip_file:
+        # Set password if provided
+        if password:
+            zip_file.setpassword(password.encode('utf-8'))
+            zip_file.setencryption(pyzipper.WZ_AES, nbits=256)
         if os.path.isfile(source_path):
             # Single file compression
             file_size = os.path.getsize(source_path)

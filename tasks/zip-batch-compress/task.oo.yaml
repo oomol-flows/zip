@@ -36,7 +36,6 @@ inputs_def:
   - handle: password
     description: "Optional password for all ZIP files"
     json_schema:
-      contentMediaType: oomol/secret
       type: string
     nullable: true
 
@@ -73,7 +72,7 @@ outputs_def:
   - handle: processing_summary
     description: "Summary of batch processing results"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
 executor:
   name: python

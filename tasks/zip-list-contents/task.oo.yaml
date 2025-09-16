@@ -16,7 +16,6 @@ inputs_def:
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
       type: string
     nullable: true
 
@@ -38,7 +37,11 @@ inputs_def:
     description: "Sort files by property"
     json_schema:
       type: string
-      enum: ["name", "size", "date", "type"]
+      enum:
+        - "name"
+        - "size"
+        - "date"
+        - "type"
     value: "name"
     nullable: false
 
@@ -53,7 +56,7 @@ outputs_def:
   - handle: detailed_contents
     description: "Detailed information about ZIP contents"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: total_files
     description: "Total number of files in ZIP"

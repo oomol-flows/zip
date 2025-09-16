@@ -35,13 +35,14 @@ inputs_def:
       type: array
       items:
         type: string
-        contentMediaType: oomol/secret
+    value:
+      - ""
     nullable: true
 
   - handle: output_password
     description: "Password for merged ZIP file (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
@@ -49,8 +50,11 @@ inputs_def:
     description: "How to handle duplicate filenames"
     json_schema:
       type: string
-      enum: ["skip", "rename", "overwrite"]
-    value: "rename"
+      enum:
+        - "skip"
+        - "rename"
+        - "overwrite"
+    value: rename
     nullable: false
 
   - handle: compression_level
@@ -76,7 +80,7 @@ outputs_def:
   - handle: merge_summary
     description: "Summary of merge operation"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: duplicate_files_count
     description: "Number of duplicate files encountered"

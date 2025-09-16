@@ -4,7 +4,12 @@
       "Bash(poetry lock:*)",
       "Bash(poetry install:*)",
       "Bash(find:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(rm:*)",
+      "Bash(xargs sed:*)",
+      "Bash(grep:*)",
+      "mcp__oomol__runFlow",
+      "mcp__oomol__getTaskResult"
     ],
     "deny": [],
     "ask": []

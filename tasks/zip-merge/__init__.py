@@ -10,7 +10,7 @@ class Inputs(typing.TypedDict):
 class Outputs(typing.TypedDict):
     merged_zip_path: str
     total_files_merged: float
-    merge_summary: typing.Any
+    merge_summary: dict
     duplicate_files_count: float
     merged_size: float
 #endregion

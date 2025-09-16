@@ -32,7 +32,7 @@ inputs_def:
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 

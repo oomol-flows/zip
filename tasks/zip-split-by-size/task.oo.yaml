@@ -33,14 +33,14 @@ inputs_def:
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
   - handle: output_password
     description: "Password for split ZIP files (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
@@ -48,7 +48,10 @@ inputs_def:
     description: "Naming pattern for split files"
     json_schema:
       type: string
-      enum: ["sequential", "size_based", "alphabetical"]
+      enum:
+        - "sequential"
+        - "size_based"
+        - "alphabetical"
     value: "sequential"
     nullable: false
 
@@ -77,7 +80,7 @@ outputs_def:
   - handle: split_summary
     description: "Summary of split operation"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: total_split_size
     description: "Total size of all split files in bytes"

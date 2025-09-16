@@ -28,6 +28,12 @@ inputs_def:
     value: true
     nullable: false
 
+  - handle: password
+    description: "Optional password for ZIP encryption"
+    json_schema:
+      type: string
+    nullable: true
+
 outputs_def:
   - handle: zip_path
     description: "Path to created ZIP file"

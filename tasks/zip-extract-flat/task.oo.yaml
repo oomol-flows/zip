@@ -24,7 +24,7 @@ inputs_def:
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
@@ -32,7 +32,10 @@ inputs_def:
     description: "How to handle filename conflicts"
     json_schema:
       type: string
-      enum: ["skip", "rename", "overwrite"]
+      enum:
+        - "skip"
+        - "rename"
+        - "overwrite"
     value: "rename"
     nullable: false
 

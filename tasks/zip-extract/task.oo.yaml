@@ -27,6 +27,12 @@ inputs_def:
     value: false
     nullable: false
 
+  - handle: password
+    description: "Password for encrypted ZIP file (optional)"
+    json_schema:
+      type: string
+    nullable: true
+
 outputs_def:
   - handle: extracted_path
     description: "Path where files were extracted"

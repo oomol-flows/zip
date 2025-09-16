@@ -5,6 +5,7 @@ class Inputs(typing.TypedDict):
     output_directory: str
     create_subfolder: bool
     overwrite_existing: bool
+    password: str | None
 class Outputs(typing.TypedDict):
     extracted_path: str
     extracted_files_count: float
@@ -31,6 +32,7 @@ def main(params: Inputs, context: Context) -> Outputs:
     output_directory = params["output_directory"]
     create_subfolder = params["create_subfolder"]
     overwrite_existing = params["overwrite_existing"]
+    password = params.get("password")
     
     if not os.path.exists(zip_path):
         raise FileNotFoundError(f"ZIP file does not exist: {zip_path}")
@@ -50,6 +52,9 @@ def main(params: Inputs, context: Context) -> Outputs:
     total_size = 0
     
     with pyzipper.AESZipFile(zip_path, 'r') as zip_file:
+        # Set password if provided
+        if password:
+            zip_file.setpassword(password.encode('utf-8'))
         # Get list of files in ZIP
         file_list = zip_file.namelist()
         

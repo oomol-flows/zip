@@ -31,7 +31,14 @@ inputs_def:
     description: "Source encoding of filenames in ZIP"
     json_schema:
       type: string
-      enum: ["gbk", "gb2312", "big5", "shift_jis", "euc-kr", "cp437", "auto"]
+      enum:
+        - "gbk"
+        - "gb2312"
+        - "big5"
+        - "shift_jis"
+        - "euc-kr"
+        - "cp437"
+        - "auto"
     value: "auto"
     nullable: false
 
@@ -39,21 +46,27 @@ inputs_def:
     description: "Target encoding for output ZIP"
     json_schema:
       type: string
-      enum: ["utf-8", "gbk", "gb2312", "big5", "shift_jis", "euc-kr"]
+      enum:
+        - "utf-8"
+        - "gbk"
+        - "gb2312"
+        - "big5"
+        - "shift_jis"
+        - "euc-kr"
     value: "utf-8"
     nullable: false
 
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
   - handle: output_password
     description: "Password for output ZIP file (optional)"
     json_schema:
-      contentMediaType: oomol/secret
+
       type: string
     nullable: true
 
@@ -80,7 +93,7 @@ outputs_def:
   - handle: conversion_summary
     description: "Summary of encoding conversion"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: files_converted
     description: "Number of files successfully converted"
@@ -105,4 +118,5 @@ executor:
 
 title: "Convert ZIP Encoding"
 icon: ":carbon:character-whole-number:"
-description: "Fix filename encoding issues in ZIP archives, especially for Chinese/Asian filenames"
+description: "Fix filename encoding issues in ZIP archives, especially for
+  Chinese/Asian filenames"

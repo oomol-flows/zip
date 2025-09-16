@@ -11,7 +11,7 @@ class Inputs(typing.TypedDict):
     preserve_timestamps: bool
 class Outputs(typing.TypedDict):
     converted_zip_path: str
-    conversion_summary: typing.Any
+    conversion_summary: dict
     files_converted: float
     encoding_issues_found: float
     detected_encoding: str

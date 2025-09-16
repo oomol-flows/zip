@@ -8,7 +8,7 @@ class Inputs(typing.TypedDict):
     max_files_to_test: int
 class Outputs(typing.TypedDict):
     is_valid: bool
-    validation_summary: typing.Any
+    validation_summary: dict
     tested_files_count: float
     corrupted_files: list[str]
     validation_errors: list[str]
