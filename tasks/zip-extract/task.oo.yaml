@@ -3,22 +3,14 @@ inputs_def:
     description: "Path to ZIP file to extract"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
     nullable: false
 
   - handle: output_directory
     description: "Directory to extract files to"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: file
     nullable: false
 
   - handle: create_subfolder

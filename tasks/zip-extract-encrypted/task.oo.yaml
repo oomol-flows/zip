@@ -3,20 +3,12 @@ inputs_def:
     description: "Path to encrypted ZIP file to extract"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
     nullable: false
 
   - handle: password
     description: "Password for encrypted ZIP"
     json_schema:
-      contentMediaType: oomol/secret
       type: string
     nullable: false
 
@@ -24,8 +16,7 @@ inputs_def:
     description: "Directory to extract files to"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: dir
     nullable: false
 
   - handle: create_subfolder
@@ -86,3 +77,5 @@ executor:
 title: "Extract Encrypted ZIP Archive"
 icon: ":carbon:cd-archive:"
 description: "Extract contents from a password-protected encrypted ZIP archive"
+ui:
+  default_width: 683.6535129676871

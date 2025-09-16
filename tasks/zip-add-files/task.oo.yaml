@@ -3,14 +3,13 @@ inputs_def:
     description: "Path to existing ZIP file"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
+      ui:options:
+        excludeAll: true
+        filters:
+          - name: ZIP
+            extensions:
+              []
     nullable: false
 
   - handle: files_to_add
@@ -27,14 +26,15 @@ inputs_def:
     description: "Optional prefix for files in archive"
     json_schema:
       type: string
-    value: ""
+      ui:widget: file
+    value:
     nullable: true
 
   - handle: password
     description: "Password if ZIP is encrypted (optional)"
     json_schema:
-      contentMediaType: oomol/secret
       type: string
+    value:
     nullable: true
 
   - handle: overwrite_existing

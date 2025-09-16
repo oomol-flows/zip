@@ -44,13 +44,8 @@ def main(params: Inputs, context: Context) -> Outputs:
     output_dir = os.path.dirname(output_path)
     os.makedirs(output_dir, exist_ok=True)
     
-    # Set encryption type based on strength
-    encryption_types = {
-        "128": pyzipper.WZ_AES128,
-        "192": pyzipper.WZ_AES192,
-        "256": pyzipper.WZ_AES256
-    }
-    encryption_type = encryption_types.get(encryption_strength, pyzipper.WZ_AES256)
+    # Set encryption type - pyzipper only supports WZ_AES (defaults to AES-256)
+    encryption_type = pyzipper.WZ_AES
     
     original_size = 0
     

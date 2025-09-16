@@ -3,28 +3,25 @@ inputs_def:
     description: "File or folder path to compress"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: file
     nullable: false
 
   - handle: output_path
     description: "Output ZIP file path"
     json_schema:
       type: string
-      ui:
-        widget: save
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: save
+      ui:options:
+        excludeAll: true
+        filters:
+          - name: ZIP
+            extensions:
+              - zip
     nullable: false
 
   - handle: password
     description: "Password for ZIP encryption"
     json_schema:
-      contentMediaType: oomol/secret
       type: string
     nullable: false
 
@@ -32,7 +29,10 @@ inputs_def:
     description: "AES encryption strength"
     json_schema:
       type: string
-      enum: ["128", "192", "256"]
+      enum:
+        - "128"
+        - "192"
+        - "256"
     value: "256"
     nullable: false
 

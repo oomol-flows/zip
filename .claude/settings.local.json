@@ -3,7 +3,8 @@
     "allow": [
       "Bash(poetry lock:*)",
       "Bash(poetry install:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []

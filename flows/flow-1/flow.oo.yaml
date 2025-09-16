@@ -26,3 +26,32 @@ nodes:
       - handle: password
         value: null
     task: self::extract_zip
+  - node_id: zip-extract-encrypted#1
+    title: "Extract Encrypted ZIP Archive #1"
+    inputs_from:
+      - handle: zip_path
+      - handle: password
+        value: "123"
+      - handle: output_directory
+        value: /oomol-driver/oomol-storage/book
+      - handle: create_subfolder
+        value: true
+      - handle: overwrite_existing
+        value: false
+      - handle: verify_password_first
+        value: true
+    task: self::zip-extract-encrypted
+  - node_id: zip-create-encrypted#2
+    title: "Create Encrypted ZIP Archive #2"
+    inputs_from:
+      - handle: source_path
+        value: /oomol-driver/oomol-storage/college_student_placement_dataset.csv
+      - handle: output_path
+        value: /oomol-driver/oomol-storage/book/sdasda.zip
+      - handle: password
+        value: sdasdasd
+      - handle: encryption_strength
+        value: "256"
+      - handle: include_subdirectories
+        value: true
+    task: self::zip-create-encrypted
