@@ -4,10 +4,7 @@ nodes:
     task: self::zip-get-info
     inputs_from:
       - handle: zip_path
-        value: "/oomol-driver/oomol-storage/test-results/created.zip"
       - handle: password
         value: null
-      - handle: include_file_details
-        value: true
       - handle: calculate_checksums
         value: true

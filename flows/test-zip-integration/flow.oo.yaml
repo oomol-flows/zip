@@ -1,3 +1,19 @@
 title: "Test ZIP Integration"
 nodes:
-  []
+  - node_id: zip-split-by-size#1
+    title: "Split ZIP by Size #1"
+    inputs_from:
+      - handle: zip_path
+        value: ""
+      - handle: max_size_mb
+        value: 100
+      - handle: output_directory
+      - handle: password
+        value:
+      - handle: output_password
+        value:
+      - handle: naming_pattern
+        value: sequential
+      - handle: compression_level
+        value: 6
+    task: self::zip-split-by-size

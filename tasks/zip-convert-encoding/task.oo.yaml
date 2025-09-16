@@ -93,7 +93,7 @@ outputs_def:
   - handle: conversion_summary
     description: "Summary of encoding conversion"
     json_schema:
-      type: object
+      contentMediaType: oomol/var
 
   - handle: files_converted
     description: "Number of files successfully converted"

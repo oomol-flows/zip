@@ -8,7 +8,7 @@ class Inputs(typing.TypedDict):
     sort_by: typing.Literal["name", "size", "date", "type"]
 class Outputs(typing.TypedDict):
     file_list: list[str]
-    detailed_contents: dict
+    detailed_contents: typing.Any
     total_files: float
     total_directories: float
     uncompressed_size: float

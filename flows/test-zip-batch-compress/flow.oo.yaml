@@ -4,7 +4,9 @@ nodes:
     task: self::zip-batch-compress
     inputs_from:
       - handle: source_folders
-        value: ["/oomol-driver/oomol-storage/test-data/folder1", "/oomol-driver/oomol-storage/test-data/folder2"]
+        value:
+          - "/oomol-driver/oomol-storage/test-data/folder1"
+          - "/oomol-driver/oomol-storage/test-data/folder2"
       - handle: output_directory
         value: "/oomol-driver/oomol-storage/test-results"
       - handle: compression_level
@@ -15,3 +17,15 @@ nodes:
         value: null
       - handle: include_subdirectories
         value: true
+  - node_id: zip-create#1
+    title: "Create ZIP Archive #1"
+    inputs_from:
+      - handle: source_path
+        value: /oomol-driver/oomol-storage/compressed_output.pdf
+      - handle: output_path
+        value: /oomol-driver/oomol-storage/book/dasdsdasd.zip
+      - handle: include_subdirectories
+        value: true
+      - handle: password
+        value:
+    task: self::zip-create

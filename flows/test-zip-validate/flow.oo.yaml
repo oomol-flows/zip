@@ -7,7 +7,9 @@ nodes:
         value: "/oomol-driver/oomol-storage/test-results/created.zip"
       - handle: password
         value: null
-      - handle: detailed_check
+      - handle: check_crc
         value: true
-      - handle: verify_integrity
-        value: true
+      - handle: max_files_to_test
+        value: 100
+      - handle: test_extraction
+        value: false

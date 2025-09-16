@@ -4,7 +4,6 @@ nodes:
     task: self::zip-extract-encrypted
     inputs_from:
       - handle: zip_path
-        value: "/oomol-driver/oomol-storage/test-results/encrypted.zip"
       - handle: password
         value: "test123"
       - handle: output_directory

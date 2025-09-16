@@ -72,7 +72,7 @@ outputs_def:
   - handle: processing_summary
     description: "Summary of batch processing results"
     json_schema:
-      type: object
+      contentMediaType: oomol/var
 
 executor:
   name: python

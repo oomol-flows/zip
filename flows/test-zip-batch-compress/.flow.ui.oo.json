@@ -1,0 +1,20 @@
+{
+  "nodes": {
+    "batch_compress#1": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "zip-create#1": {
+      "rfNode": {
+        "position": {
+          "x": 497,
+          "y": 209
+        }
+      }
+    }
+  }
+}

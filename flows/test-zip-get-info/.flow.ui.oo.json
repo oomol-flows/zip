@@ -1,0 +1,12 @@
+{
+  "nodes": {
+    "get_info#1": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    }
+  }
+}

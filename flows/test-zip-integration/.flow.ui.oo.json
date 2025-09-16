@@ -1,0 +1,12 @@
+{
+  "nodes": {
+    "zip-split-by-size#1": {
+      "rfNode": {
+        "position": {
+          "x": 119.5,
+          "y": -108.5
+        }
+      }
+    }
+  }
+}

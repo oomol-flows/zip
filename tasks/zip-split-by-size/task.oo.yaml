@@ -35,6 +35,7 @@ inputs_def:
     json_schema:
 
       type: string
+    value:
     nullable: true
 
   - handle: output_password
@@ -42,6 +43,7 @@ inputs_def:
     json_schema:
 
       type: string
+    value:
     nullable: true
 
   - handle: naming_pattern
@@ -52,7 +54,7 @@ inputs_def:
         - "sequential"
         - "size_based"
         - "alphabetical"
-    value: "sequential"
+    value: sequential
     nullable: false
 
   - handle: compression_level
@@ -80,7 +82,7 @@ outputs_def:
   - handle: split_summary
     description: "Summary of split operation"
     json_schema:
-      type: object
+      contentMediaType: oomol/var
 
   - handle: total_split_size
     description: "Total size of all split files in bytes"

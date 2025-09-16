@@ -3,22 +3,20 @@ inputs_def:
     description: "File or folder path to compress"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: file
     nullable: false
 
   - handle: output_path
     description: "Output ZIP file path"
     json_schema:
       type: string
-      ui:
-        widget: save
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: save
+      ui:options:
+        filters:
+          - name: ZIP
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
 
   - handle: include_subdirectories
@@ -32,6 +30,7 @@ inputs_def:
     description: "Optional password for ZIP encryption"
     json_schema:
       type: string
+    value:
     nullable: true
 
 outputs_def:

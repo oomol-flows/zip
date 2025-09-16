@@ -3,14 +3,7 @@ inputs_def:
     description: "Path to ZIP file to analyze"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
     nullable: false
 
   - handle: password
@@ -31,12 +24,12 @@ outputs_def:
   - handle: file_info
     description: "Basic ZIP file information"
     json_schema:
-      type: object
+      contentMediaType: oomol/var
 
   - handle: archive_stats
     description: "Archive statistics and metadata"
     json_schema:
-      type: object
+      contentMediaType: oomol/var
 
   - handle: is_encrypted
     description: "Whether the ZIP file is encrypted"

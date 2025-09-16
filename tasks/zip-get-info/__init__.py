@@ -5,8 +5,8 @@ class Inputs(typing.TypedDict):
     password: str | None
     calculate_checksums: bool
 class Outputs(typing.TypedDict):
-    file_info: dict
-    archive_stats: dict
+    file_info: typing.Any
+    archive_stats: typing.Any
     is_encrypted: bool
     compression_method: str
     total_entries: float

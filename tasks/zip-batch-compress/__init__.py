@@ -12,7 +12,7 @@ class Outputs(typing.TypedDict):
     total_original_size: float
     total_compressed_size: float
     overall_compression_ratio: float
-    processing_summary: dict
+    processing_summary: typing.Any
 #endregion
 
 from oocana import Context
