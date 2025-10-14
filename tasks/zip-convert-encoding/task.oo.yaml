@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file with encoding issues"
+    description: "%path-to-zip-file-with-encoding-issues%"
     json_schema:
       type: string
       ui:
@@ -14,7 +14,7 @@ inputs_def:
     nullable: false
 
   - handle: output_path
-    description: "Output ZIP file path with corrected encoding"
+    description: "%output-zip-file-path-with-corrected-encoding%"
     json_schema:
       type: string
       ui:
@@ -28,7 +28,7 @@ inputs_def:
     nullable: false
 
   - handle: source_encoding
-    description: "Source encoding of filenames in ZIP"
+    description: "%source-encoding-of-filenames-in-zip%"
     json_schema:
       type: string
       enum:
@@ -39,11 +39,11 @@ inputs_def:
         - "euc-kr"
         - "cp437"
         - "auto"
-    value: "auto"
+    value: auto
     nullable: false
 
   - handle: target_encoding
-    description: "Target encoding for output ZIP"
+    description: "%target-encoding-for-output-zip%"
     json_schema:
       type: string
       enum:
@@ -53,32 +53,32 @@ inputs_def:
         - "big5"
         - "shift_jis"
         - "euc-kr"
-    value: "utf-8"
+    value: utf-8
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional2%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: output_password
-    description: "Password for output ZIP file (optional)"
+    description: "%password-for-output-zip-file-optional%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: fix_garbled_names
-    description: "Attempt to fix garbled Chinese filenames"
+    description: "%attempt-to-fix-garbled-chinese-filenames%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: preserve_timestamps
-    description: "Preserve original file timestamps"
+    description: "%preserve-original-file-timestamps%"
     json_schema:
       type: boolean
     value: true
@@ -116,7 +116,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Convert ZIP Encoding"
+title: "%convert-zip-encoding%"
 icon: ":carbon:character-whole-number:"
-description: "Fix filename encoding issues in ZIP archives, especially for
-  Chinese/Asian filenames"
+description: "%fix-filename-encoding-issues-in-zip-archives-especially-for-chin%"

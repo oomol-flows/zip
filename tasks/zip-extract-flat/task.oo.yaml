@@ -1,27 +1,27 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to extract"
+    description: "%path-to-zip-file-to-extract2%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: output_directory
-    description: "Directory to extract files to"
+    description: "%directory-to-extract-files-to3%"
     json_schema:
       type: string
       ui:widget: dir
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional3%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: handle_name_conflicts
-    description: "How to handle filename conflicts"
+    description: "%how-to-handle-filename-conflicts%"
     json_schema:
       type: string
       enum:
@@ -32,14 +32,14 @@ inputs_def:
     nullable: false
 
   - handle: file_filter
-    description: "File extension filter (e.g., '.txt,.jpg')"
+    description: "%file-extension-filter-e-g-txt-jpg%"
     json_schema:
       type: string
     value: ""
     nullable: true
 
   - handle: max_files
-    description: "Maximum number of files to extract (0=unlimited)"
+    description: "%maximum-number-of-files-to-extract-0-unlimited%"
     json_schema:
       type: integer
       minimum: 0
@@ -80,6 +80,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Flat ZIP Extraction"
+title: "%flat-zip-extraction%"
 icon: ":carbon:horizontal-view:"
-description: "Extract ZIP contents to a flat directory structure, ignoring subdirectories"
+description: "%extract-zip-contents-to-a-flat-directory-structure-ignoring-subd%"

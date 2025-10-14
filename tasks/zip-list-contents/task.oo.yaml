@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to list contents"
+    description: "%path-to-zip-file-to-list-contents%"
     json_schema:
       type: string
       ui:
@@ -14,27 +14,27 @@ inputs_def:
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional6%"
     json_schema:
       type: string
     nullable: true
 
   - handle: show_directories
-    description: "Include directories in the list"
+    description: "%include-directories-in-the-list%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: detailed_info
-    description: "Include detailed file information"
+    description: "%include-detailed-file-information%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: sort_by
-    description: "Sort files by property"
+    description: "%sort-files-by-property%"
     json_schema:
       type: string
       enum:
@@ -42,7 +42,7 @@ inputs_def:
         - "size"
         - "date"
         - "type"
-    value: "name"
+    value: name
     nullable: false
 
 outputs_def:
@@ -84,6 +84,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "List ZIP Contents"
+title: "%list-zip-contents%"
 icon: ":carbon:list:"
-description: "List and analyze contents of a ZIP archive with detailed information"
+description: "%list-and-analyze-contents-of-a-zip-archive-with-detailed-informa%"

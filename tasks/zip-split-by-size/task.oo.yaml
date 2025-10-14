@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to split"
+    description: "%path-to-zip-file-to-split%"
     json_schema:
       type: string
       ui:
@@ -14,7 +14,7 @@ inputs_def:
     nullable: false
 
   - handle: max_size_mb
-    description: "Maximum size per split file in MB"
+    description: "%maximum-size-per-split-file-in-mb%"
     json_schema:
       type: number
       minimum: 1
@@ -23,7 +23,7 @@ inputs_def:
     nullable: false
 
   - handle: output_directory
-    description: "Directory to save split ZIP files"
+    description: "%directory-to-save-split-zip-files%"
     json_schema:
       type: string
       ui:
@@ -31,7 +31,7 @@ inputs_def:
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional7%"
     json_schema:
 
       type: string
@@ -39,7 +39,7 @@ inputs_def:
     nullable: true
 
   - handle: output_password
-    description: "Password for split ZIP files (optional)"
+    description: "%password-for-split-zip-files-optional%"
     json_schema:
 
       type: string
@@ -47,7 +47,7 @@ inputs_def:
     nullable: true
 
   - handle: naming_pattern
-    description: "Naming pattern for split files"
+    description: "%naming-pattern-for-split-files%"
     json_schema:
       type: string
       enum:
@@ -58,7 +58,7 @@ inputs_def:
     nullable: false
 
   - handle: compression_level
-    description: "Compression level for split files (0-9)"
+    description: "%compression-level-for-split-files-0-9%"
     json_schema:
       type: integer
       minimum: 0
@@ -100,6 +100,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Split ZIP by Size"
+title: "%split-zip-by-size%"
 icon: ":carbon:split:"
-description: "Split a large ZIP archive into smaller files based on maximum size limit"
+description: "%split-a-large-zip-archive-into-smaller-files-based-on-maximum-si%"

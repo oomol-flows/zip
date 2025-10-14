@@ -1,13 +1,13 @@
 inputs_def:
   - handle: source_path
-    description: "File or folder path to compress"
+    description: "%file-or-folder-path-to-compress3%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: output_path
-    description: "Output ZIP file path"
+    description: "%output-zip-file-path3%"
     json_schema:
       type: string
       ui:widget: save
@@ -20,13 +20,13 @@ inputs_def:
     nullable: false
 
   - handle: password
-    description: "Password for ZIP encryption"
+    description: "%password-for-zip-encryption%"
     json_schema:
       type: string
     nullable: false
 
   - handle: encryption_strength
-    description: "AES encryption strength"
+    description: "%aes-encryption-strength%"
     json_schema:
       type: string
       enum:
@@ -37,7 +37,7 @@ inputs_def:
     nullable: false
 
   - handle: include_subdirectories
-    description: "Include subdirectories when compressing folder"
+    description: "%include-subdirectories-when-compressing-folder3%"
     json_schema:
       type: boolean
     value: true
@@ -70,6 +70,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Create Encrypted ZIP Archive"
+title: "%create-encrypted-zip-archive%"
 icon: ":carbon:locked:"
-description: "Compress files or folders into a password-protected AES encrypted ZIP archive"
+description: "%compress-files-or-folders-into-a-password-protected-aes-encrypte%"

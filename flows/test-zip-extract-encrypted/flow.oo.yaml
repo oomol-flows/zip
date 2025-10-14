@@ -1,4 +1,4 @@
-title: "Test ZIP Extract Encrypted"
+title: "%test-zip-extract-encrypted%"
 nodes:
   - node_id: extract_encrypted_zip#1
     task: self::zip-extract-encrypted

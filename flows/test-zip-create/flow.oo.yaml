@@ -1,4 +1,4 @@
-title: "Test ZIP Create"
+title: "%test-zip-create%"
 nodes:
   - node_id: create_zip#1
     task: self::zip-create

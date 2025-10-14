@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to existing ZIP file"
+    description: "%path-to-existing-zip-file%"
     json_schema:
       type: string
       ui:widget: file
@@ -13,7 +13,7 @@ inputs_def:
     nullable: false
 
   - handle: files_to_add
-    description: "Files or folders to add to ZIP"
+    description: "%files-or-folders-to-add-to-zip%"
     json_schema:
       type: array
       items:
@@ -23,7 +23,7 @@ inputs_def:
     nullable: false
 
   - handle: archive_path_prefix
-    description: "Optional prefix for files in archive"
+    description: "%optional-prefix-for-files-in-archive%"
     json_schema:
       type: string
       ui:widget: file
@@ -31,14 +31,14 @@ inputs_def:
     nullable: true
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional%"
     json_schema:
       type: string
     value:
     nullable: true
 
   - handle: overwrite_existing
-    description: "Overwrite files if they already exist in ZIP"
+    description: "%overwrite-files-if-they-already-exist-in-zip%"
     json_schema:
       type: boolean
     value: false
@@ -73,6 +73,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Add Files to ZIP Archive"
+title: "%add-files-to-zip-archive%"
 icon: ":carbon:add-alt:"
-description: "Add new files or folders to an existing ZIP archive"
+description: "%add-new-files-or-folders-to-an-existing-zip-archive%"

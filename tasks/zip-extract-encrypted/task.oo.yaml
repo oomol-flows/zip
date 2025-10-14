@@ -1,40 +1,40 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to encrypted ZIP file to extract"
+    description: "%path-to-encrypted-zip-file-to-extract%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: password
-    description: "Password for encrypted ZIP"
+    description: "%password-for-encrypted-zip%"
     json_schema:
       type: string
     nullable: false
 
   - handle: output_directory
-    description: "Directory to extract files to"
+    description: "%directory-to-extract-files-to2%"
     json_schema:
       type: string
       ui:widget: dir
     nullable: false
 
   - handle: create_subfolder
-    description: "Create subfolder with ZIP name"
+    description: "%create-subfolder-with-zip-name2%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: overwrite_existing
-    description: "Overwrite existing files"
+    description: "%overwrite-existing-files2%"
     json_schema:
       type: boolean
     value: false
     nullable: false
 
   - handle: verify_password_first
-    description: "Verify password before extraction"
+    description: "%verify-password-before-extraction%"
     json_schema:
       type: boolean
     value: true
@@ -74,8 +74,8 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Extract Encrypted ZIP Archive"
+title: "%extract-encrypted-zip-archive%"
 icon: ":carbon:cd-archive:"
-description: "Extract contents from a password-protected encrypted ZIP archive"
+description: "%extract-contents-from-a-password-protected-encrypted-zip-archive%"
 ui:
   default_width: 683.6535129676871

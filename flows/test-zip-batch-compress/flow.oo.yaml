@@ -1,4 +1,4 @@
-title: "Test ZIP Batch Compress"
+title: "%test-zip-batch-compress%"
 nodes:
   - node_id: batch_compress#1
     task: self::zip-batch-compress
@@ -18,10 +18,9 @@ nodes:
       - handle: include_subdirectories
         value: true
   - node_id: zip-create#1
-    title: "Create ZIP Archive #1"
+    title: "%create-zip-archive-1%"
     inputs_from:
       - handle: source_path
-        value: /oomol-driver/oomol-storage/compressed_output.pdf
       - handle: output_path
         value: /oomol-driver/oomol-storage/book/dasdsdasd.zip
       - handle: include_subdirectories
@@ -30,7 +29,7 @@ nodes:
         value:
     task: self::zip-create
   - node_id: +python#1
-    title: "Python #1"
+    title: "%python-1%"
     icon: ":logos:python:"
     task:
       ui:

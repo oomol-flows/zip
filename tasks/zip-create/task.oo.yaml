@@ -1,13 +1,13 @@
 inputs_def:
   - handle: source_path
-    description: "File or folder path to compress"
+    description: "%file-or-folder-path-to-compress2%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: output_path
-    description: "Output ZIP file path"
+    description: "%output-zip-file-path2%"
     json_schema:
       type: string
       ui:widget: save
@@ -20,14 +20,14 @@ inputs_def:
     nullable: false
 
   - handle: include_subdirectories
-    description: "Include subdirectories when compressing folder"
+    description: "%include-subdirectories-when-compressing-folder2%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: password
-    description: "Optional password for ZIP encryption"
+    description: "%optional-password-for-zip-encryption%"
     json_schema:
       type: string
     value:
@@ -60,6 +60,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Create ZIP Archive"
+title: "%create-zip-archive%"
 icon: ":carbon:archive:"
-description: "Compress files or folders into a ZIP archive with basic compression"
+description: "%compress-files-or-folders-into-a-zip-archive-with-basic-compress%"

@@ -1,7 +1,7 @@
-title: "Test ZIP Integration"
+title: "%test-zip-integration%"
 nodes:
   - node_id: zip-split-by-size#1
-    title: "Split ZIP by Size #1"
+    title: "%split-zip-by-size-1%"
     inputs_from:
       - handle: zip_path
         value: ""

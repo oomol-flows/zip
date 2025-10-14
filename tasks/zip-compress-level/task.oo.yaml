@@ -1,6 +1,6 @@
 inputs_def:
   - handle: source_path
-    description: "File or folder path to compress"
+    description: "%file-or-folder-path-to-compress%"
     json_schema:
       type: string
       ui:
@@ -8,7 +8,7 @@ inputs_def:
     nullable: false
 
   - handle: output_path
-    description: "Output ZIP file path"
+    description: "%output-zip-file-path%"
     json_schema:
       type: string
       ui:
@@ -22,7 +22,7 @@ inputs_def:
     nullable: false
 
   - handle: compression_level
-    description: "Compression level (0=no compression, 9=best compression)"
+    description: "%compression-level-0-no-compression-9-best-compression%"
     json_schema:
       type: integer
       minimum: 0
@@ -31,15 +31,19 @@ inputs_def:
     nullable: false
 
   - handle: compression_method
-    description: "Compression method"
+    description: "%compression-method%"
     json_schema:
       type: string
-      enum: ["DEFLATED", "STORED", "BZIP2", "LZMA"]
-    value: "DEFLATED"
+      enum:
+        - "DEFLATED"
+        - "STORED"
+        - "BZIP2"
+        - "LZMA"
+    value: DEFLATED
     nullable: false
 
   - handle: include_subdirectories
-    description: "Include subdirectories when compressing folder"
+    description: "%include-subdirectories-when-compressing-folder%"
     json_schema:
       type: boolean
     value: true
@@ -77,6 +81,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Create ZIP with Custom Compression"
+title: "%create-zip-with-custom-compression%"
 icon: ":carbon:settings-adjust:"
-description: "Create ZIP archive with customizable compression level and method"
+description: "%create-zip-archive-with-customizable-compression-level-and-metho%"

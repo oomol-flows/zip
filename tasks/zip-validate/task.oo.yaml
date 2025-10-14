@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to validate"
+    description: "%path-to-zip-file-to-validate%"
     json_schema:
       type: string
       ui:
@@ -14,28 +14,28 @@ inputs_def:
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional8%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: test_extraction
-    description: "Test actual extraction of files"
+    description: "%test-actual-extraction-of-files%"
     json_schema:
       type: boolean
     value: false
     nullable: false
 
   - handle: check_crc
-    description: "Verify CRC checksums of all files"
+    description: "%verify-crc-checksums-of-all-files%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: max_files_to_test
-    description: "Maximum files to test (0=all files)"
+    description: "%maximum-files-to-test-0-all-files%"
     json_schema:
       type: integer
       minimum: 0
@@ -83,6 +83,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Validate ZIP Archive"
+title: "%validate-zip-archive%"
 icon: ":carbon:checkmark:"
-description: "Validate ZIP file integrity, test extraction, and verify checksums"
+description: "%validate-zip-file-integrity-test-extraction-and-verify-checksums%"

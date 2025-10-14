@@ -1,6 +1,6 @@
 inputs_def:
   - handle: source_folders
-    description: "List of folders to compress individually"
+    description: "%list-of-folders-to-compress-individually%"
     json_schema:
       type: array
       items:
@@ -10,7 +10,7 @@ inputs_def:
     nullable: false
 
   - handle: output_directory
-    description: "Directory to save ZIP files"
+    description: "%directory-to-save-zip-files%"
     json_schema:
       type: string
       ui:
@@ -18,7 +18,7 @@ inputs_def:
     nullable: false
 
   - handle: compression_level
-    description: "Compression level (0-9)"
+    description: "%compression-level-0-9%"
     json_schema:
       type: integer
       minimum: 0
@@ -27,20 +27,20 @@ inputs_def:
     nullable: false
 
   - handle: add_timestamp
-    description: "Add timestamp to ZIP filename"
+    description: "%add-timestamp-to-zip-filename%"
     json_schema:
       type: boolean
     value: false
     nullable: false
 
   - handle: password
-    description: "Optional password for all ZIP files"
+    description: "%optional-password-for-all-zip-files%"
     json_schema:
       type: string
     nullable: true
 
   - handle: include_subdirectories
-    description: "Include subdirectories when compressing folders"
+    description: "%include-subdirectories-when-compressing-folders%"
     json_schema:
       type: boolean
     value: true
@@ -80,6 +80,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Batch Compress Folders"
+title: "%batch-compress-folders%"
 icon: ":carbon:folder-details:"
-description: "Compress multiple folders into separate ZIP archives in a batch operation"
+description: "%compress-multiple-folders-into-separate-zip-archives-in-a-batch%"

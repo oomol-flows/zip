@@ -1,6 +1,6 @@
 inputs_def:
   - handle: zip_files
-    description: "List of ZIP files to merge"
+    description: "%list-of-zip-files-to-merge%"
     json_schema:
       type: array
       items:
@@ -16,7 +16,7 @@ inputs_def:
     nullable: false
 
   - handle: output_path
-    description: "Output merged ZIP file path"
+    description: "%output-merged-zip-file-path%"
     json_schema:
       type: string
       ui:
@@ -30,7 +30,7 @@ inputs_def:
     nullable: false
 
   - handle: passwords
-    description: "Passwords for encrypted ZIP files (in order, optional)"
+    description: "%passwords-for-encrypted-zip-files-in-order-optional%"
     json_schema:
       type: array
       items:
@@ -40,14 +40,14 @@ inputs_def:
     nullable: true
 
   - handle: output_password
-    description: "Password for merged ZIP file (optional)"
+    description: "%password-for-merged-zip-file-optional%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: handle_duplicates
-    description: "How to handle duplicate filenames"
+    description: "%how-to-handle-duplicate-filenames%"
     json_schema:
       type: string
       enum:
@@ -58,7 +58,7 @@ inputs_def:
     nullable: false
 
   - handle: compression_level
-    description: "Compression level for merged ZIP (0-9)"
+    description: "%compression-level-for-merged-zip-0-9%"
     json_schema:
       type: integer
       minimum: 0
@@ -98,6 +98,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Merge ZIP Archives"
+title: "%merge-zip-archives%"
 icon: ":carbon:join-inner:"
-description: "Merge multiple ZIP archives into a single ZIP file with duplicate handling"
+description: "%merge-multiple-zip-archives-into-a-single-zip-file-with-duplicat%"

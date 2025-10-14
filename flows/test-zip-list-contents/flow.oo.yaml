@@ -1,4 +1,4 @@
-title: "Test ZIP List Contents"
+title: "%test-zip-list-contents%"
 nodes:
   - node_id: list_contents#1
     task: self::zip-list-contents

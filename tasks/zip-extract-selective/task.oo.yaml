@@ -1,13 +1,13 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to extract"
+    description: "%path-to-zip-file-to-extract3%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: files_to_extract
-    description: "List of specific files to extract (relative paths)"
+    description: "%list-of-specific-files-to-extract-relative-paths%"
     json_schema:
       type: array
       items:
@@ -15,28 +15,28 @@ inputs_def:
     nullable: false
 
   - handle: output_directory
-    description: "Directory to extract files to"
+    description: "%directory-to-extract-files-to4%"
     json_schema:
       type: string
       ui:widget: dir
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional4%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: preserve_structure
-    description: "Preserve directory structure"
+    description: "%preserve-directory-structure%"
     json_schema:
       type: boolean
     value: true
     nullable: false
 
   - handle: overwrite_existing
-    description: "Overwrite existing files"
+    description: "%overwrite-existing-files3%"
     json_schema:
       type: boolean
     value: false
@@ -78,6 +78,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Selective ZIP Extraction"
+title: "%selective-zip-extraction%"
 icon: ":carbon:select-02:"
-description: "Extract only specific files from a ZIP archive"
+description: "%extract-only-specific-files-from-a-zip-archive%"

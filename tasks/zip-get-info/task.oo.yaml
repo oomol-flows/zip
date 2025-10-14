@@ -1,20 +1,20 @@
 inputs_def:
   - handle: zip_path
-    description: "Path to ZIP file to analyze"
+    description: "%path-to-zip-file-to-analyze%"
     json_schema:
       type: string
       ui:widget: file
     nullable: false
 
   - handle: password
-    description: "Password if ZIP is encrypted (optional)"
+    description: "%password-if-zip-is-encrypted-optional5%"
     json_schema:
 
       type: string
     nullable: true
 
   - handle: calculate_checksums
-    description: "Calculate additional file checksums"
+    description: "%calculate-additional-file-checksums%"
     json_schema:
       type: boolean
     value: false
@@ -62,6 +62,6 @@ executor:
     entry: __init__.py
     spawn: false
 
-title: "Get ZIP Information"
+title: "%get-zip-information%"
 icon: ":carbon:information:"
-description: "Analyze ZIP file and extract detailed metadata and statistics"
+description: "%analyze-zip-file-and-extract-detailed-metadata-and-statistics%"
