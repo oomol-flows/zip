@@ -8,11 +8,11 @@ class Inputs(typing.TypedDict):
     file_filter: str | None
     max_files: int
 class Outputs(typing.TypedDict):
-    extracted_path: str
-    extracted_files_count: float
-    extracted_files: list[str]
-    skipped_files_count: float
-    total_size: float
+    extracted_path: typing.NotRequired[str]
+    extracted_files_count: typing.NotRequired[float]
+    extracted_files: typing.NotRequired[list[str]]
+    skipped_files_count: typing.NotRequired[float]
+    total_size: typing.NotRequired[float]
 #endregion
 
 from oocana import Context

@@ -8,11 +8,11 @@ class Inputs(typing.TypedDict):
     password: str | None
     include_subdirectories: bool
 class Outputs(typing.TypedDict):
-    created_zips: list[str]
-    total_original_size: float
-    total_compressed_size: float
-    overall_compression_ratio: float
-    processing_summary: typing.Any
+    created_zips: typing.NotRequired[list[str]]
+    total_original_size: typing.NotRequired[float]
+    total_compressed_size: typing.NotRequired[float]
+    overall_compression_ratio: typing.NotRequired[float]
+    processing_summary: typing.NotRequired[typing.Any]
 #endregion
 
 from oocana import Context

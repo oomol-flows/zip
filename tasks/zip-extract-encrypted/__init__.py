@@ -8,11 +8,11 @@ class Inputs(typing.TypedDict):
     overwrite_existing: bool
     verify_password_first: bool
 class Outputs(typing.TypedDict):
-    extracted_path: str
-    extracted_files_count: float
-    extracted_files: list[str]
-    total_size: float
-    password_verified: bool
+    extracted_path: typing.NotRequired[str]
+    extracted_files_count: typing.NotRequired[float]
+    extracted_files: typing.NotRequired[list[str]]
+    total_size: typing.NotRequired[float]
+    password_verified: typing.NotRequired[bool]
 #endregion
 
 from oocana import Context

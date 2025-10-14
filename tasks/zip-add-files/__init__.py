@@ -7,10 +7,10 @@ class Inputs(typing.TypedDict):
     password: str | None
     overwrite_existing: bool
 class Outputs(typing.TypedDict):
-    zip_path: str
-    added_files_count: float
-    new_size: float
-    files_added: list[str]
+    zip_path: typing.NotRequired[str]
+    added_files_count: typing.NotRequired[float]
+    new_size: typing.NotRequired[float]
+    files_added: typing.NotRequired[list[str]]
 #endregion
 
 from oocana import Context

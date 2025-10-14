@@ -7,12 +7,12 @@ class Inputs(typing.TypedDict):
     check_crc: bool
     max_files_to_test: int
 class Outputs(typing.TypedDict):
-    is_valid: bool
-    validation_summary: typing.Any
-    tested_files_count: float
-    corrupted_files: list[str]
-    validation_errors: list[str]
-    can_open_archive: bool
+    is_valid: typing.NotRequired[bool]
+    validation_summary: typing.NotRequired[typing.Any]
+    tested_files_count: typing.NotRequired[float]
+    corrupted_files: typing.NotRequired[list[str]]
+    validation_errors: typing.NotRequired[list[str]]
+    can_open_archive: typing.NotRequired[bool]
 #endregion
 
 from oocana import Context

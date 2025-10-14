@@ -5,13 +5,13 @@ class Inputs(typing.TypedDict):
     password: str | None
     calculate_checksums: bool
 class Outputs(typing.TypedDict):
-    file_info: typing.Any
-    archive_stats: typing.Any
-    is_encrypted: bool
-    compression_method: str
-    total_entries: float
-    size_on_disk: float
-    uncompressed_total_size: float
+    file_info: typing.NotRequired[typing.Any]
+    archive_stats: typing.NotRequired[typing.Any]
+    is_encrypted: typing.NotRequired[bool]
+    compression_method: typing.NotRequired[str]
+    total_entries: typing.NotRequired[float]
+    size_on_disk: typing.NotRequired[float]
+    uncompressed_total_size: typing.NotRequired[float]
 #endregion
 
 from oocana import Context

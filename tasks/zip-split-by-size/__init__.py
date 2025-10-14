@@ -9,11 +9,11 @@ class Inputs(typing.TypedDict):
     naming_pattern: typing.Literal["sequential", "size_based", "alphabetical"]
     compression_level: int
 class Outputs(typing.TypedDict):
-    split_files: list[str]
-    split_count: float
-    split_summary: typing.Any
-    total_split_size: float
-    original_size: float
+    split_files: typing.NotRequired[list[str]]
+    split_count: typing.NotRequired[float]
+    split_summary: typing.NotRequired[typing.Any]
+    total_split_size: typing.NotRequired[float]
+    original_size: typing.NotRequired[float]
 #endregion
 
 from oocana import Context

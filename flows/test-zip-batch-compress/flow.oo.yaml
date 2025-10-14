@@ -29,3 +29,17 @@ nodes:
       - handle: password
         value:
     task: self::zip-create
+  - node_id: +python#1
+    title: "Python #1"
+    icon: ":logos:python:"
+    task:
+      ui:
+        default_width: 450
+      inputs_def:
+        []
+      outputs_def:
+        []
+      executor:
+        name: python
+        options:
+          entry: scriptlets/+scriptlet#1.py

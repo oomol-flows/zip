@@ -7,11 +7,11 @@ class Inputs(typing.TypedDict):
     compression_method: typing.Literal["DEFLATED", "STORED", "BZIP2", "LZMA"]
     include_subdirectories: bool
 class Outputs(typing.TypedDict):
-    zip_path: str
-    compressed_size: float
-    original_size: float
-    compression_ratio: float
-    compression_time: float
+    zip_path: typing.NotRequired[str]
+    compressed_size: typing.NotRequired[float]
+    original_size: typing.NotRequired[float]
+    compression_ratio: typing.NotRequired[float]
+    compression_time: typing.NotRequired[float]
 #endregion
 
 from oocana import Context

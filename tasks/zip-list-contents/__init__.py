@@ -7,12 +7,12 @@ class Inputs(typing.TypedDict):
     detailed_info: bool
     sort_by: typing.Literal["name", "size", "date", "type"]
 class Outputs(typing.TypedDict):
-    file_list: list[str]
-    detailed_contents: typing.Any
-    total_files: float
-    total_directories: float
-    uncompressed_size: float
-    compressed_size: float
+    file_list: typing.NotRequired[list[str]]
+    detailed_contents: typing.NotRequired[typing.Any]
+    total_files: typing.NotRequired[float]
+    total_directories: typing.NotRequired[float]
+    uncompressed_size: typing.NotRequired[float]
+    compressed_size: typing.NotRequired[float]
 #endregion
 
 from oocana import Context

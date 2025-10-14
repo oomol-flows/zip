@@ -10,11 +10,11 @@ class Inputs(typing.TypedDict):
     fix_garbled_names: bool
     preserve_timestamps: bool
 class Outputs(typing.TypedDict):
-    converted_zip_path: str
-    conversion_summary: typing.Any
-    files_converted: float
-    encoding_issues_found: float
-    detected_encoding: str
+    converted_zip_path: typing.NotRequired[str]
+    conversion_summary: typing.NotRequired[typing.Any]
+    files_converted: typing.NotRequired[float]
+    encoding_issues_found: typing.NotRequired[float]
+    detected_encoding: typing.NotRequired[str]
 #endregion
 
 from oocana import Context

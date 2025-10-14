@@ -8,11 +8,11 @@ class Inputs(typing.TypedDict):
     handle_duplicates: typing.Literal["skip", "rename", "overwrite"]
     compression_level: int
 class Outputs(typing.TypedDict):
-    merged_zip_path: str
-    total_files_merged: float
-    merge_summary: typing.Any
-    duplicate_files_count: float
-    merged_size: float
+    merged_zip_path: typing.NotRequired[str]
+    total_files_merged: typing.NotRequired[float]
+    merge_summary: typing.NotRequired[typing.Any]
+    duplicate_files_count: typing.NotRequired[float]
+    merged_size: typing.NotRequired[float]
 #endregion
 
 from oocana import Context
