@@ -14,7 +14,15 @@
       "Bash(do echo \"=== $task ===\")",
       "Bash(tail:*)",
       "Bash(done)",
-      "Bash(do echo \"=== $task/task.oo.yaml ===\")"
+      "Bash(do echo \"=== $task/task.oo.yaml ===\")",
+      "Read(//oomol-driver/oomol-storage/**)",
+      "Bash(test:*)",
+      "Bash(poetry show:*)",
+      "Bash(poetry run python:*)",
+      "Bash(poetry run python3:*)",
+      "Bash(npm install)",
+      "Bash(cat:*)",
+      "Bash(poetry cache clear:*)"
     ],
     "deny": [],
     "ask": []

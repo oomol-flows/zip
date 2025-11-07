@@ -10,8 +10,7 @@ requires-python = ">=3.10,<3.13"
 dependencies = [
     "pyzipper (>=0.3.6,<0.4.0)",
     "pandas (>=2.0.0,<3.0.0)",
-    "chardet (>=5.0.0,<6.0.0)",
-    "oocana"
+    "chardet (>=5.0.0,<6.0.0)"
 ]
 
 [tool.poetry]
