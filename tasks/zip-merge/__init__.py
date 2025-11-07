@@ -10,7 +10,7 @@ class Inputs(typing.TypedDict):
 class Outputs(typing.TypedDict):
     merged_zip_path: typing.NotRequired[str]
     total_files_merged: typing.NotRequired[float]
-    merge_summary: typing.NotRequired[typing.Any]
+    merge_summary: typing.NotRequired[dict]
     duplicate_files_count: typing.NotRequired[float]
     merged_size: typing.NotRequired[float]
 #endregion

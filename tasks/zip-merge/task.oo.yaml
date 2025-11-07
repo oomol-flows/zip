@@ -81,7 +81,7 @@ outputs_def:
   - handle: merge_summary
     description: "Summary of merge operation"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: duplicate_files_count
     description: "Number of duplicate files encountered"

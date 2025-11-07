@@ -53,7 +53,7 @@ outputs_def:
   - handle: validation_summary
     description: "Summary of validation results"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: tested_files_count
     description: "Number of files tested"

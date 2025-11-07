@@ -8,7 +8,7 @@ class Inputs(typing.TypedDict):
     max_files_to_test: int
 class Outputs(typing.TypedDict):
     is_valid: typing.NotRequired[bool]
-    validation_summary: typing.NotRequired[typing.Any]
+    validation_summary: typing.NotRequired[dict]
     tested_files_count: typing.NotRequired[float]
     corrupted_files: typing.NotRequired[list[str]]
     validation_errors: typing.NotRequired[list[str]]

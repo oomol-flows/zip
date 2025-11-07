@@ -59,7 +59,7 @@ outputs_def:
   - handle: detailed_contents
     description: "Detailed information about ZIP contents"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: total_files
     description: "Total number of files in ZIP"

@@ -81,7 +81,7 @@ outputs_def:
   - handle: split_summary
     description: "Summary of split operation"
     json_schema:
-      contentMediaType: oomol/var
+      type: object
 
   - handle: total_split_size
     description: "Total size of all split files in bytes"
