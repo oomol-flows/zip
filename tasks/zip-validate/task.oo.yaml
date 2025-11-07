@@ -3,21 +3,23 @@ inputs_def:
     description: "%path-to-zip-file-to-validate%"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
+
+  - group: Validation Options
+    collapsed: true
 
   - handle: password
     description: "%password-if-zip-is-encrypted-optional8%"
     json_schema:
-
       type: string
+    value:
     nullable: true
 
   - handle: test_extraction

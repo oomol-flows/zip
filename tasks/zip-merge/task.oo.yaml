@@ -5,22 +5,7 @@ inputs_def:
       type: array
       items:
         type: string
-        ui:
-          widget: file
-          ui:options:
-            filters:
-              - name: ZIP Archive
-                extensions:
-                  - zip
-            excludeAll: true
-    nullable: false
-
-  - handle: output_path
-    description: "%output-merged-zip-file-path%"
-    json_schema:
-      type: string
-      ui:
-        widget: save
+        ui:widget: file
         ui:options:
           filters:
             - name: ZIP Archive
@@ -28,6 +13,22 @@ inputs_def:
                 - zip
           excludeAll: true
     nullable: false
+
+  - handle: output_path
+    description: "%output-merged-zip-file-path%"
+    json_schema:
+      type: string
+      ui:widget: save
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
+    nullable: false
+
+  - group: Optional Settings
+    collapsed: true
 
   - handle: passwords
     description: "%passwords-for-encrypted-zip-files-in-order-optional%"
@@ -42,8 +43,8 @@ inputs_def:
   - handle: output_password
     description: "%password-for-merged-zip-file-optional%"
     json_schema:
-
       type: string
+    value:
     nullable: true
 
   - handle: handle_duplicates

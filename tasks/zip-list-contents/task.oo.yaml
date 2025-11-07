@@ -3,20 +3,23 @@ inputs_def:
     description: "%path-to-zip-file-to-list-contents%"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
+
+  - group: Optional Settings
+    collapsed: true
 
   - handle: password
     description: "%password-if-zip-is-encrypted-optional6%"
     json_schema:
       type: string
+    value:
     nullable: true
 
   - handle: show_directories

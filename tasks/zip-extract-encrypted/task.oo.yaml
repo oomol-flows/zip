@@ -19,6 +19,9 @@ inputs_def:
       ui:widget: dir
     nullable: false
 
+  - group: Optional Settings
+    collapsed: true
+
   - handle: create_subfolder
     description: "%create-subfolder-with-zip-name2%"
     json_schema:

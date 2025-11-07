@@ -3,23 +3,24 @@ inputs_def:
     description: "%file-or-folder-path-to-compress%"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: file
     nullable: false
 
   - handle: output_path
     description: "%output-zip-file-path%"
     json_schema:
       type: string
-      ui:
-        widget: save
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: save
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
+
+  - group: Compression Options
+    collapsed: true
 
   - handle: compression_level
     description: "%compression-level-0-no-compression-9-best-compression%"

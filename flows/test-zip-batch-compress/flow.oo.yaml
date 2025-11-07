@@ -5,10 +5,8 @@ nodes:
     inputs_from:
       - handle: source_folders
         value:
-          - "/oomol-driver/oomol-storage/test-data/folder1"
-          - "/oomol-driver/oomol-storage/test-data/folder2"
+          []
       - handle: output_directory
-        value: "/oomol-driver/oomol-storage/test-results"
       - handle: compression_level
         value: 6
       - handle: add_timestamp

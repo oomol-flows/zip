@@ -5,17 +5,18 @@ inputs_def:
       type: array
       items:
         type: string
-        ui:
-          widget: dir
+        ui:widget: dir
     nullable: false
 
   - handle: output_directory
     description: "%directory-to-save-zip-files%"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: dir
     nullable: false
+
+  - group: Optional Settings
+    collapsed: true
 
   - handle: compression_level
     description: "%compression-level-0-9%"
@@ -37,6 +38,7 @@ inputs_def:
     description: "%optional-password-for-all-zip-files%"
     json_schema:
       type: string
+    value:
     nullable: true
 
   - handle: include_subdirectories

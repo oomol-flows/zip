@@ -5,9 +5,9 @@ class Inputs(typing.TypedDict):
     output_path: str
     source_encoding: typing.Literal["gbk", "gb2312", "big5", "shift_jis", "euc-kr", "cp437", "auto"]
     target_encoding: typing.Literal["utf-8", "gbk", "gb2312", "big5", "shift_jis", "euc-kr"]
+    fix_garbled_names: bool
     password: str | None
     output_password: str | None
-    fix_garbled_names: bool
     preserve_timestamps: bool
 class Outputs(typing.TypedDict):
     converted_zip_path: typing.NotRequired[str]

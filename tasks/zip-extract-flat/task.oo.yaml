@@ -13,11 +13,14 @@ inputs_def:
       ui:widget: dir
     nullable: false
 
+  - group: Optional Settings
+    collapsed: true
+
   - handle: password
     description: "%password-if-zip-is-encrypted-optional3%"
     json_schema:
-
       type: string
+    value:
     nullable: true
 
   - handle: handle_name_conflicts

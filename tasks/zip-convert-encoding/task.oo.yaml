@@ -3,29 +3,30 @@ inputs_def:
     description: "%path-to-zip-file-with-encoding-issues%"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
 
   - handle: output_path
     description: "%output-zip-file-path-with-corrected-encoding%"
     json_schema:
       type: string
-      ui:
-        widget: save
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: save
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
+
+  - group: Encoding Options
+    collapsed: true
 
   - handle: source_encoding
     description: "%source-encoding-of-filenames-in-zip%"
@@ -56,26 +57,29 @@ inputs_def:
     value: utf-8
     nullable: false
 
-  - handle: password
-    description: "%password-if-zip-is-encrypted-optional2%"
-    json_schema:
-
-      type: string
-    nullable: true
-
-  - handle: output_password
-    description: "%password-for-output-zip-file-optional%"
-    json_schema:
-
-      type: string
-    nullable: true
-
   - handle: fix_garbled_names
     description: "%attempt-to-fix-garbled-chinese-filenames%"
     json_schema:
       type: boolean
     value: true
     nullable: false
+
+  - group: Optional Settings
+    collapsed: true
+
+  - handle: password
+    description: "%password-if-zip-is-encrypted-optional2%"
+    json_schema:
+      type: string
+    value:
+    nullable: true
+
+  - handle: output_password
+    description: "%password-for-output-zip-file-optional%"
+    json_schema:
+      type: string
+    value:
+    nullable: true
 
   - handle: preserve_timestamps
     description: "%preserve-original-file-timestamps%"

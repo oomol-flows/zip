@@ -3,14 +3,13 @@ inputs_def:
     description: "%path-to-zip-file-to-split%"
     json_schema:
       type: string
-      ui:
-        widget: file
-        ui:options:
-          filters:
-            - name: ZIP Archive
-              extensions:
-                - zip
-          excludeAll: true
+      ui:widget: file
+      ui:options:
+        filters:
+          - name: ZIP Archive
+            extensions:
+              - zip
+        excludeAll: true
     nullable: false
 
   - handle: max_size_mb
@@ -26,14 +25,15 @@ inputs_def:
     description: "%directory-to-save-split-zip-files%"
     json_schema:
       type: string
-      ui:
-        widget: dir
+      ui:widget: dir
     nullable: false
+
+  - group: Optional Settings
+    collapsed: true
 
   - handle: password
     description: "%password-if-zip-is-encrypted-optional7%"
     json_schema:
-
       type: string
     value:
     nullable: true
@@ -41,7 +41,6 @@ inputs_def:
   - handle: output_password
     description: "%password-for-split-zip-files-optional%"
     json_schema:
-
       type: string
     value:
     nullable: true

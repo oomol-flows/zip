@@ -9,7 +9,7 @@ inputs_def:
         filters:
           - name: ZIP
             extensions:
-              []
+              - zip
     nullable: false
 
   - handle: files_to_add
@@ -18,15 +18,16 @@ inputs_def:
       type: array
       items:
         type: string
-        ui:
-          widget: file
+        ui:widget: file
     nullable: false
+
+  - group: Optional Settings
+    collapsed: true
 
   - handle: archive_path_prefix
     description: "%optional-prefix-for-files-in-archive%"
     json_schema:
       type: string
-      ui:widget: file
     value:
     nullable: true
 

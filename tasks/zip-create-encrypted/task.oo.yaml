@@ -25,6 +25,9 @@ inputs_def:
       type: string
     nullable: false
 
+  - group: Encryption Options
+    collapsed: true
+
   - handle: encryption_strength
     description: "%aes-encryption-strength%"
     json_schema:
